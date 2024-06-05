@@ -111,8 +111,8 @@ export default function Home() {
            {/*Why Choose Don Denciong?*/}
            <div className={`flex flex-col items-center p-16`}>
                 <h1 className={` text-4xl font-bold`}> Why <span className={`text-[#5465FF]`}>Choose </span>Don Denciong?</h1>
-                <div className={``}>
-                    <div className={`flex flex-wrap mt-10  px-20 ml-8`}>
+                <div className={`flex items-center justify-center p-5`}>
+                    <div className={`flex flex-wrap  ml-8`}>
                         <div className={`p-5`}>
                             <div className={`w-[18em] bg-[#FFFFFF] p-10 rounded-md shadow-xl flex flex-col items-center`}>
                                 <Image className={`aspect-square w-16 `} src={shake} alt={``}/>
