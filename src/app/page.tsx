@@ -7,6 +7,8 @@ import window from '../../public/window.png'
 import shake from '../../public/shake.png'
 import phone from '../../public/phone.svg'
 import email from '../../public/mail.svg'
+import wmail from '../../public/white_mail.png'
+import wphone from '../../public/white_phone.png'
 import trash_bin from '../../public/trash_bin.svg'
 import promo1 from '../../public/promo1.svg'
 import promo2 from '../../public/promo2.svg'
@@ -28,7 +30,7 @@ export default function Home() {
          </div>
      </header>
 
-       <main className={`flex py-14 bg-[#dde4fb] flex-col`}>
+       <main className={`flex bg-[#dde4fb] flex-col`}>
            {/*first div*/}
            {/*Hero*/}
            <div className={`flex mt-5 p-10 justify-around `}>
@@ -429,9 +431,52 @@ export default function Home() {
                    </div>
                </div>
            </div>
-
            {/*sixth div*/}
 
+           <footer className={`h-56 text-white bg-[#788BFF] flex items-center justify-between p-16`}>
+               <div className={`flex flex-col justify-center `}>
+                   <h1 className={`text-xl`}>Don Denciong</h1>
+                   <p className={`mt-5 text-xs`}>Your New Cleaning Partner!</p>
+                   <p className={`text-xs`}>Expert Cleaning for Your Home and Office!</p>
+                   <p className={`text-xs`}> We Make Clean Look Easy!</p>
+               </div>
+
+               <div className={`flex gap-36 justify-center `}>
+                   <div className={`gap-2.5 flex flex-col`}>
+                       <h1 className={`text-xl`}>Company</h1>
+                       <p className={`text-xs`}>About Us</p>
+                       <p className={`text-xs`}>Services</p>
+                       <p className={`text-xs`}>Contact Us</p>
+                   </div>
+
+                   <div className={`gap-2.5 flex flex-col`}>
+                       <h1 className={`text-xl`}>Services</h1>
+                       <p className={`text-xs`}>Residential Cleaning</p>
+                       <p className={`text-xs`}>Commercial/ Office Cleaning</p>
+                       <p className={`text-xs`}>End of Lease Cleaning</p>
+                       <p className={`text-xs`}>Window Cleaning</p>
+                   </div>
+
+                   <div className={`gap-2.5 flex flex-col px-5`}>
+                       <h1 className={`text-xl`}>Contact Us</h1>
+                       <div className={`flex flex-col gap-2`}>
+                           <section className={`flex gap-2`}>
+                               <Image className={`aspect-square w-[1.1rem]  `} src={wphone} alt={``}/>
+                               <p  className={`text-xs`}>+61 406 780 941</p>
+                           </section>
+                           <section className={`flex gap-3`}>
+                               <Image className={`aspect-square w-[1.1rem] `} src={wmail} alt={``}/>
+                               <p  className={`text-xs`}>info@dondenciong.com.au</p>
+                           </section>
+                           <section className={`flex gap-2.5`}>
+                               <p className={` font-bold text-xs`}>ABN</p>
+                               <p className={`text-xs`}>26912506894</p>
+                           </section>
+
+                       </div>
+                   </div>
+               </div>
+           </footer>
        </main>
    </div>
   );
