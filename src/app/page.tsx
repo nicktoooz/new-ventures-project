@@ -441,26 +441,31 @@ export default function Home() {
                             </div>
 
                             <button type={`submit`} onClick={() => {
-                                axios.post("/api/send-mail", {
-                                    "name": name,
-                                    "streetAddress": streetAddress,
-                                    "suburb": suburb,
-                                    "email": emailAddress,
-                                    "mobileNumber": mobileNumber,
-                                    "service": service,
-                                    "details": details
-                                }).then(res => {
-                                    setName("")
-                                    setStreetAddress("")
-                                    setSuburb("")
-                                    setEmailAddress("")
-                                    setMobileNumber("")
-                                    setService("")
-                                    setDetails("")
-                                    console.log("success")
-                                }).catch(err => {
-                                    console.log("error")
-                                })
+                                if(name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
+                                    axios.post("/api/send-mail", {
+                                        "name": name,
+                                        "streetAddress": streetAddress,
+                                        "suburb": suburb,
+                                        "email": emailAddress,
+                                        "mobileNumber": mobileNumber,
+                                        "service": service,
+                                        "details": details
+                                    }).then(res => {
+                                        setName("")
+                                        setStreetAddress("")
+                                        setSuburb("")
+                                        setEmailAddress("")
+                                        setMobileNumber("")
+                                        setService("")
+                                        setDetails("")
+                                        console.log("success")
+                                    }).catch(err => {
+                                        console.log("error")
+                                    })
+                                }else {
+                                console.log('err')
+                                }
+
                             }} className={`bg-[#5465FF] rounded-md w-64 p-3 text-white`}> Send Message
                             </button>
                         </form>
