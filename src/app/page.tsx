@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import image1 from '../../public/hero.png';
 import house from '../../public/houseicon.png';
@@ -15,7 +16,17 @@ import promo2 from '../../public/promo2.svg';
 import house2 from '../../public/haus.svg';
 import mopping from '../../public/mopping.png';
 import ReviewCard from '@/app/(components)/ReviewCard';
+import {useState} from "react";
+import axios from "axios";
 export default function Home() {
+ const [name, setName] = useState('')
+  const [streetAddress, setStreetAddress] = useState('')
+  const [suburb, setSuburb] = useState('')
+  const [emailAddress, setEmailAddress] = useState('')
+  const [mobileNumber, setMobileNumber] = useState('')
+  const [service, setService] = useState('')
+  const [details, setDetails] = useState('')
+
   return (
     <div>
       <header className={`h-20 shadow-xl flex justify-between p-5 items-center`}>
@@ -306,54 +317,68 @@ export default function Home() {
             </div>
             <div className={`bg-[#ced7f8] p-10 rounded-xl flex flex-col gap-5 shadow-xl items-center`}>
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setName(e.target.value)} type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Name :
                 </label>
               </div>
 
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setStreetAddress(e.target.value)}type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Street Address :
                 </label>
               </div>
 
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setSuburb(e.target.value)} type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Suburb :
                 </label>
               </div>
 
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setEmailAddress(e.target.value)}type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Email :
                 </label>
               </div>
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setMobileNumber(e.target.value)} type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Mobile Number :
                 </label>
               </div>
 
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setService(e.target.value)} type="text" id="Name" className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Service/s Required:
                 </label>
               </div>
 
               <div className="relative">
-                <input type="text" id="Name" className="w-[32em] h-24  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
+                <input onChange={e => setDetails(e.target.value)} type="text" id="Name" className="w-[32em] h-24  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer" placeholder=" " />
                 <label htmlFor="Name" className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                   Please provide any other relevant details.
                 </label>
               </div>
 
-              <button className={`bg-[#5465FF] rounded-md w-64 p-3 text-white`}> Send Message</button>
+              <button onClick={()=>{
+                axios.post("/api/send-mail",{
+                  "name":name,
+                    "streetAddress":streetAddress,
+                    "suburb":suburb,
+                    "email":emailAddress,
+                    "mobileNumber":mobileNumber,
+                    "services":service,
+                    "details":details
+                }).then(res=>{
+                  console.log("success")
+                }).catch(err=>{
+                  console.log("error")
+                })
+              }} className={`bg-[#5465FF] rounded-md w-64 p-3 text-white`}> Send Message</button>
             </div>
           </div>
         </div>
