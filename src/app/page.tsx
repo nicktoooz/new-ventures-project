@@ -379,7 +379,7 @@ export default function Home() {
                         </div>
                         <div className={`bg-[#ced7f8] p-10 rounded-xl flex flex-col gap-5 shadow-xl items-center`}>
                             <div className="relative">
-                                <input onChange={e => setName(e.target.value)} type="text" id="Name"
+                                <input value={name} onChange={e => setName(e.target.value)} type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -389,7 +389,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input onChange={e => setStreetAddress(e.target.value)} type="text" id="Name"
+                                <input value={streetAddress} onChange={e => setStreetAddress(e.target.value)} type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -399,7 +399,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input onChange={e => setSuburb(e.target.value)} type="text" id="Name"
+                                <input value={suburb} onChange={e => setSuburb(e.target.value)} type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -409,7 +409,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input onChange={e => setEmailAddress(e.target.value)} type="text" id="Name"
+                                <input value={emailAddress} onChange={e => setEmailAddress(e.target.value)} type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -418,7 +418,7 @@ export default function Home() {
                                 </label>
                             </div>
                             <div className="relative">
-                                <input onChange={e => setMobileNumber(e.target.value)} type="text" id="Name"
+                                <input value={mobileNumber} onChange={e => setMobileNumber(e.target.value)} type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -428,7 +428,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input onChange={e => setService(e.target.value)} type="text" id="Name"
+                                <input value={service} onChange={e => setService(e.target.value)} type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -438,7 +438,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input onChange={e => setDetails(e.target.value)} type="text" id="Name"
+                                <input value={details} onChange={e => setDetails(e.target.value)} type="text" id="Name"
                                        className="w-[32em] h-24  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
