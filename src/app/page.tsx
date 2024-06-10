@@ -309,7 +309,7 @@ export default function Home() {
                     <h1 className={`font-bold text-4xl`}>
                         Our <span className={` text-[#5465FF]`}>Customer Says</span>
                     </h1>
-                    <div className={`mt-10 items-center w-[80em] flex flex-col `}>
+                    <div className={`mt-10 items-center max-w-[80em] flex flex-col `}>
                         <div className={`flex flex-wrap gap-10 p-10 items-center justify-center`}>
                             <ReviewCard/>
                             <ReviewCard/>
