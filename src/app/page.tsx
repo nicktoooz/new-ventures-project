@@ -336,8 +336,7 @@ export default function Home() {
                                 <Image className={`w-[31em]`} src={promo2} alt={``}/>
                             </div>
                         </div>
-                        <div
-                            className={`flex bg-[#dde4fb] p-10 rounded-xl items-center max-w-[65em] justify-around mt-5 shadow-xl`}>
+                        <div className={`flex bg-[#dde4fb] p-10 rounded-xl items-center max-w-[65em] justify-around mt-5 shadow-xl`}>
                             <Image className={`aspect-square w-36`} src={house2} alt={``}/>
                             <div className={`flex flex-col justify-center `}>
                                 <h1 className={`text-[#5465FF] text-3xl font-bold`}>Get your place cleaned</h1>
@@ -371,9 +370,9 @@ export default function Home() {
                             </h1>
                             <Image className={`aspect-auto w-[32em]`} src={mopping} alt={``}/>
                         </div>
-                        <div className={`bg-[#ced7f8] p-10 rounded-xl flex flex-col gap-5 shadow-xl items-center`}>
+                        <form className={`bg-[#ced7f8] p-10 rounded-xl flex flex-col gap-5 shadow-xl items-center`}>
                             <div className="relative">
-                                <input value={name} onChange={e => setName(e.target.value)} type="text" id="Name"
+                                <input value={name} onChange={e => setName(e.target.value)} required type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -383,7 +382,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={streetAddress} onChange={e => setStreetAddress(e.target.value)} type="text" id="Name"
+                                <input value={streetAddress} onChange={e => setStreetAddress(e.target.value)} required type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -393,7 +392,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={suburb} onChange={e => setSuburb(e.target.value)} type="text" id="Name"
+                                <input value={suburb} onChange={e => setSuburb(e.target.value)} required type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -403,7 +402,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={emailAddress} onChange={e => setEmailAddress(e.target.value)} type="text" id="Name"
+                                <input value={emailAddress} onChange={e => setEmailAddress(e.target.value)} required type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -412,7 +411,7 @@ export default function Home() {
                                 </label>
                             </div>
                             <div className="relative">
-                                <input value={mobileNumber} onChange={e => setMobileNumber(e.target.value)} type="text" id="Name"
+                                <input value={mobileNumber} onChange={e => setMobileNumber(e.target.value)} type="number" required id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -422,7 +421,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={service} onChange={e => setService(e.target.value)} type="text" id="Name"
+                                <input value={service} onChange={e => setService(e.target.value)} required type="text" id="Name"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -432,7 +431,7 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={details} onChange={e => setDetails(e.target.value)} type="text" id="Name"
+                                <input  value={details} onChange={e => setDetails(e.target.value)} required type="text" id="Name"
                                        className="w-[32em] h-24  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -441,7 +440,7 @@ export default function Home() {
                                 </label>
                             </div>
 
-                            <button onClick={() => {
+                            <button type={`submit`} onClick={() => {
                                 axios.post("/api/send-mail", {
                                     "name": name,
                                     "streetAddress": streetAddress,
@@ -464,7 +463,7 @@ export default function Home() {
                                 })
                             }} className={`bg-[#5465FF] rounded-md w-64 p-3 text-white`}> Send Message
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 {/*sixth div*/}
