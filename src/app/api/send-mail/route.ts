@@ -4,7 +4,7 @@ import { createTransport } from 'nodemailer';
 async function handler(req: NextRequest) {
   try {
     const { name, streetAddress, suburb, email, mobileNumber, service, details } = await req.json();
-
+    console.log(service)
     const html = `
           <div style="background-color: #99afff20">
             <table style="background-color: #99afff20; padding: 20px; width: 100%;">
