@@ -68,13 +68,9 @@ export default function Home() {
                         <h1 className={`text-xl`}>Expert Cleaning for Your Home and Office!</h1>
                         <h1 className={`text-xl`}> We Make Clean Look Easy!</h1>
                         <div className={`mt-20 gap-8 flex`}>
-                            <button
-                                className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Send
-                                a Quote
+                            <button onClick={()=>location.href="#quote"} className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Send a Quote
                             </button>
-                            <button
-                                className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Learn
-                                More
+                            <button className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Learn More
                             </button>
                         </div>
                     </div>
@@ -139,12 +135,12 @@ export default function Home() {
                 {/*third div*/}
                 {/*Why Choose Don Denciong?*/}
                 <div className={`flex flex-col items-center p-16`}>
-                    <h1 className={` text-4xl font-bold`}>
+                    <h1 className={` text-4xl  font-bold`}>
                         {' '}
                         Why <span className={`text-[#5465FF]`}>Choose </span>Don Denciong?
                     </h1>
                     <div className={`flex items-center justify-center p-5`}>
-                        <div className={`flex flex-wrap  ml-8`}>
+                        <div className={`flex flex-wrap justify-center items-center`}>
                             <div className={`p-5`}>
                                 <div
                                     className={`w-[18em] bg-[#FFFFFF] p-10 rounded-md shadow-xl flex flex-col items-center`}>
@@ -245,7 +241,7 @@ export default function Home() {
                     </h1>
                     <div className={`px-28 py-16`}>
                         <div className={`flex flex-wrap gap-16  justify-center`}>
-                            <div className={`w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl shadow-xl`}>
+                            <div className={`max-w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl shadow-xl`}>
                                 <div
                                     className={` flex justify-center items-center absolute top-[-32px] left-[-30px] rounded-full w-20 h-20  bg-[#5465FF]`}>
                                     <h1 className={`text-4xl font-bold text-white`}>1</h1>
@@ -256,7 +252,7 @@ export default function Home() {
                                     tailor our services to fit your requirements.</p>
                             </div>
 
-                            <div className={`w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
+                            <div className={`max-w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
                                 <div
                                     className={` flex justify-center items-center absolute top-[-32px] left-[-30px] rounded-full w-20 h-20  bg-[#5465FF]`}>
                                     <h1 className={`text-4xl font-bold text-white`}>2</h1>
@@ -267,7 +263,7 @@ export default function Home() {
                                     costs.</p>
                             </div>
 
-                            <div className={`w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
+                            <div className={`max-w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
                                 <div
                                     className={` flex justify-center items-center absolute top-[-32px] left-[-30px] rounded-full w-20 h-20  bg-[#5465FF]`}>
                                     <h1 className={`text-4xl font-bold text-white`}>3</h1>
@@ -278,7 +274,7 @@ export default function Home() {
                                     every corner is spotless.</p>
                             </div>
 
-                            <div className={`w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
+                            <div className={`max-w-[32em]  h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
                                 <div
                                     className={` flex justify-center items-center absolute top-[-32px] left-[-30px] rounded-full w-20 h-20  bg-[#5465FF]`}>
                                     <h1 className={`text-4xl font-bold text-white`}>4</h1>
@@ -288,7 +284,7 @@ export default function Home() {
                                     everything meets our high standards. Your satisfaction is guaranteed.</p>
                             </div>
 
-                            <div className={`w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
+                            <div className={`max-w-[32em] h-52 p-8 bg-[#dde4fb] relative rounded-xl  shadow-xl`}>
                                 <div
                                     className={` flex justify-center items-center absolute top-[-32px] left-[-30px] rounded-full w-20 h-20  bg-[#5465FF]`}>
                                     <h1 className={`text-4xl font-bold text-white`}>5</h1>
@@ -341,7 +337,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div
-                            className={`flex bg-[#dde4fb] p-10 rounded-xl items-center w-[65em] justify-around mt-5 shadow-xl`}>
+                            className={`flex bg-[#dde4fb] p-10 rounded-xl items-center max-w-[65em] justify-around mt-5 shadow-xl`}>
                             <Image className={`aspect-square w-36`} src={house2} alt={``}/>
                             <div className={`flex flex-col justify-center `}>
                                 <h1 className={`text-[#5465FF] text-3xl font-bold`}>Get your place cleaned</h1>
@@ -350,9 +346,7 @@ export default function Home() {
                                 <p className={`text-xl`}> We Make Clean Look Easy!</p>
                             </div>
                             <div className={`flex flex-col gap-5 justify-center `}>
-                                <button
-                                    className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Get
-                                    a Quote
+                                <button onClick={()=>location.href="#quote"} className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Get a Quote
                                 </button>
                                 <button
                                     className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Call
@@ -366,7 +360,7 @@ export default function Home() {
 
                 {/*sixth div*/}
                 {/*Get a Quote*/}
-                <div className={`p-16`}>
+                <div id={'quote'} className={`p-16`}>
                     <h1 className={`text-4xl font-bold text-center`}>
                         Get a <span className={`text-[#5465FF]`}>Quote</span>
                     </h1>
