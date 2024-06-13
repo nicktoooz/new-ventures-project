@@ -12,13 +12,13 @@ export default function Header() {
                 </div>
                 <div className={`header-right z-50`}>
                     <div className={`md:hidden`} onClick={() => setMenu(!menuVisibility)}>
-                <span className={`bg-black h-1.5 w-10 rounded block transition-all duration-500`} style={{
+                <span className={`bg-gray-600 h-1.5 w-10 rounded block transition-all duration-500`} style={{
                     rotate: `${menuVisibility ? '45deg' : '0deg'}`,
                     transform: `${menuVisibility ? 'translateY(10px) translateX(4px)' : 'translateY(0px)'}`
                 }}></span>
-                        <span className={`bg-black h-1.5 w-10 rounded block transition-all duration-500 my-1`}
+                        <span className={`bg-gray-600 h-1.5 w-10 rounded block transition-all duration-500 my-1`}
                               style={{opacity: `${menuVisibility ? 0 : 1}`}}></span>
-                        <span className={`bg-black h-1.5 w-10 rounded block transition-all duration-500`} style={{
+                        <span className={`bg-gray-600 h-1.5 w-10 rounded block transition-all duration-500`} style={{
                             rotate: `${menuVisibility ? '-45deg' : '0deg'}`,
                             transform: `${menuVisibility ? 'translateY(-10px) translateX(4px)' : 'translateY(0px)'}`
                         }}></span>
