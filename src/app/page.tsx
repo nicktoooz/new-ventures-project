@@ -31,23 +31,7 @@ export default function Home() {
 
     return (
         <div>
-
-            <header className={`h-20 shadow-xl flex justify-between p-5 items-center`}>
-                <div>
-                    <h1>Don Denciong</h1>
-                </div>
-                <div className={`header-right gap-14 flex items-center mr-5`}>
-                    <button className={`hover:underline decoration-4 decoration-[#5465FF] `}>Home</button>
-                    <button className={`hover:underline decoration-4 decoration-[#5465FF] `}>Services</button>
-                    <button className={`hover:underline decoration-4 decoration-[#5465FF] `}>About Us</button>
-                    <button
-                        className={`border-2 border-[#5465FF] hover:bg-[#5465FF] hover:text-white p-2 rounded-md text-[#5465FF]`}>Contact
-                        Us
-                    </button>
-                </div>
-                <SuccessMessage visible={issucces}/>
-            </header>
-
+            <SuccessMessage visible={issucces}/>
             <main className={`flex bg-[#dde4fb] flex-col`}>
                 {/*first div*/}
                 {/*Hero*/}
@@ -495,49 +479,6 @@ export default function Home() {
                 </div>
                 {/*sixth div*/}
 
-                <footer className={`h-56 text-white bg-[#788BFF] flex items-center justify-between p-16`}>
-                    <div className={`flex flex-col justify-center `}>
-                        <h1 className={`text-xl`}>Don Denciong</h1>
-                        <p className={`mt-5 text-xs`}>Your New Cleaning Partner!</p>
-                        <p className={`text-xs`}>Expert Cleaning for Your Home and Office!</p>
-                        <p className={`text-xs`}> We Make Clean Look Easy!</p>
-                    </div>
-
-                    <div className={`flex gap-36 justify-center `}>
-                        <div className={`gap-2.5 flex flex-col`}>
-                            <h1 className={`text-xl`}>Company</h1>
-                            <p className={`text-xs`}>About Us</p>
-                            <p className={`text-xs`}>Services</p>
-                            <p className={`text-xs`}>Contact Us</p>
-                        </div>
-
-                        <div className={`gap-2.5 flex flex-col`}>
-                            <h1 className={`text-xl`}>Services</h1>
-                            <p className={`text-xs`}>Residential Cleaning</p>
-                            <p className={`text-xs`}>Commercial/ Office Cleaning</p>
-                            <p className={`text-xs`}>End of Lease Cleaning</p>
-                            <p className={`text-xs`}>Window Cleaning</p>
-                        </div>
-
-                        <div className={`gap-2.5 flex flex-col px-5`}>
-                            <h1 className={`text-xl`}>Contact Us</h1>
-                            <div className={`flex flex-col gap-2`}>
-                                <section className={`flex gap-2`}>
-                                    <Image className={`aspect-square w-[1.1rem]  `} src={wphone} alt={``}/>
-                                    <p className={`text-xs`}>+61 406 780 941</p>
-                                </section>
-                                <section className={`flex gap-3`}>
-                                    <Image className={`aspect-square w-[1.1rem] `} src={wmail} alt={``}/>
-                                    <p className={`text-xs`}>info@dondenciong.com.au</p>
-                                </section>
-                                <section className={`flex gap-2.5`}>
-                                    <p className={` font-bold text-xs`}>ABN</p>
-                                    <p className={`text-xs`}>26912506894</p>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </main>
         </div>
     );
