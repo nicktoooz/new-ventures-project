@@ -27,9 +27,11 @@ export default function Home() {
     const [mobileNumber, setMobileNumber] = useState('')
     const [service, setService] = useState('')
     const [details, setDetails] = useState('')
+    const [issucces, setSucces] = useState(false)
 
     return (
         <div>
+
             <header className={`h-20 shadow-xl flex justify-between p-5 items-center`}>
                 <div>
                     <h1>Don Denciong</h1>
@@ -43,6 +45,7 @@ export default function Home() {
                         Us
                     </button>
                 </div>
+                <SuccessMessage visible={issucces}/>
             </header>
 
             <main className={`flex bg-[#dde4fb] flex-col`}>
@@ -68,9 +71,13 @@ export default function Home() {
                         <h1 className={`text-xl`}>Expert Cleaning for Your Home and Office!</h1>
                         <h1 className={`text-xl`}> We Make Clean Look Easy!</h1>
                         <div className={`mt-20 gap-8 flex`}>
-                            <button onClick={()=>location.href="#quote"} className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Send a Quote
+                            <button onClick={() => location.href = "#quote"}
+                                    className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Send
+                                a Quote
                             </button>
-                            <button className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Learn More
+                            <button
+                                className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Learn
+                                More
                             </button>
                         </div>
                     </div>
@@ -336,7 +343,8 @@ export default function Home() {
                                 <Image className={`w-[31em]`} src={promo2} alt={``}/>
                             </div>
                         </div>
-                        <div className={`flex bg-[#dde4fb] p-10 rounded-xl items-center max-w-[65em] justify-around mt-5 shadow-xl`}>
+                        <div
+                            className={`flex bg-[#dde4fb] p-10 rounded-xl items-center max-w-[65em] justify-around mt-5 shadow-xl`}>
                             <Image className={`aspect-square w-36`} src={house2} alt={``}/>
                             <div className={`flex flex-col justify-center `}>
                                 <h1 className={`text-[#5465FF] text-3xl font-bold`}>Get your place cleaned</h1>
@@ -345,7 +353,9 @@ export default function Home() {
                                 <p className={`text-xl`}> We Make Clean Look Easy!</p>
                             </div>
                             <div className={`flex flex-col gap-5 justify-center `}>
-                                <button onClick={()=>location.href="#quote"} className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Get a Quote
+                                <button onClick={() => location.href = "#quote"}
+                                        className={`p-2 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Get
+                                    a Quote
                                 </button>
                                 <button
                                     className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Call
@@ -370,9 +380,10 @@ export default function Home() {
                             </h1>
                             <Image className={`aspect-auto w-[32em]`} src={mopping} alt={``}/>
                         </div>
-                        <form className={`bg-[#ced7f8] p-10 rounded-xl flex flex-col gap-5 shadow-xl items-center`}>
+                        <div  className={`bg-[#ced7f8] p-10 rounded-xl flex flex-col gap-5 shadow-xl items-center`}>
                             <div className="relative">
-                                <input value={name} onChange={e => setName(e.target.value)} required type="text" id="Name"
+                                <input value={name} onChange={e => setName(e.target.value)}  type="text"
+
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -382,7 +393,8 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={streetAddress} onChange={e => setStreetAddress(e.target.value)} required type="text" id="Name"
+                                <input value={streetAddress} onChange={e => setStreetAddress(e.target.value)}
+                                       type="text"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -392,7 +404,8 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={suburb} onChange={e => setSuburb(e.target.value)} required type="text" id="Name"
+                                <input value={suburb} onChange={e => setSuburb(e.target.value)} type="text"
+
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -402,7 +415,8 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={emailAddress} onChange={e => setEmailAddress(e.target.value)} required type="text" id="Name"
+                                <input value={emailAddress} onChange={e => setEmailAddress(e.target.value)}
+                                       type="text"
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -411,7 +425,8 @@ export default function Home() {
                                 </label>
                             </div>
                             <div className="relative">
-                                <input value={mobileNumber} onChange={e => setMobileNumber(e.target.value)} type="number" required id="Name"
+                                <input value={mobileNumber} onChange={e => setMobileNumber(e.target.value)} type="tel"
+
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -421,7 +436,8 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input value={service} onChange={e => setService(e.target.value)} required type="text" id="Name"
+                                <input value={service} onChange={e => setService(e.target.value)} type="text"
+
                                        className="w-[32em]  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -431,7 +447,8 @@ export default function Home() {
                             </div>
 
                             <div className="relative">
-                                <input  value={details} onChange={e => setDetails(e.target.value)} required type="text" id="Name"
+                                <input value={details} onChange={e => setDetails(e.target.value)} type="text"
+
                                        className="w-[32em] h-24  block rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
                                        placeholder=" "/>
                                 <label htmlFor="Name"
@@ -440,8 +457,8 @@ export default function Home() {
                                 </label>
                             </div>
 
-                            <button type={`submit`} onClick={() => {
-                                if(name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
+                            <button onClick={(e) => {
+                                if (name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
                                     axios.post("/api/send-mail", {
                                         "name": name,
                                         "streetAddress": streetAddress,
@@ -458,17 +475,22 @@ export default function Home() {
                                         setMobileNumber("")
                                         setService("")
                                         setDetails("")
+                                        setSucces(true)
+                                        setTimeout(()=>{
+                                            setSucces(false)
+                                        },3000)
                                         console.log("success")
+
                                     }).catch(err => {
                                         console.log("error")
                                     })
-                                }else {
-                                console.log('err')
+                                } else {
+                                    console.log('err')
                                 }
 
                             }} className={`bg-[#5465FF] rounded-md w-64 p-3 text-white`}> Send Message
                             </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 {/*sixth div*/}
@@ -519,4 +541,17 @@ export default function Home() {
             </main>
         </div>
     );
+}
+
+function SuccessMessage({visible}: {visible:boolean}) {
+    return (
+        visible && (
+            <div className={`h-screen w-full fixed bg-[#00000026] z-50 grid place-items-center top-0 left-0`}>
+                <div className={`max-w-96 h-96 bg-green-200`}>
+                    <h1>LOREM</h1>
+                </div>
+            </div>
+        )
+    )
+
 }
