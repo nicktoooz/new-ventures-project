@@ -31,7 +31,7 @@ export default function WindowCleaning() {
                     effective way to give your property a fresh, new look. Visitors will immediately notice if your
                     glass doors and windows are free from dust and grime. This is especially important for shopfront
                     windows, as clean windows leave a strong impression that you mean business.</p>
-                <div className="preview  grid aspect-square w-80 grid-cols-4 gap-2.5">
+                <div className="preview justify-self-center grid aspect-square w-80 grid-cols-4 gap-2.5">
                     <div className="main bg-red-600 aspect-square col-span-4"></div>
                     <div className="child aspect-square bg-blue-500"></div>
                     <div className="child aspect-square bg-blue-500"></div>

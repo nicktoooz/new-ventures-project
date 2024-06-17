@@ -26,7 +26,7 @@ export default function Header() {
                     </div>
 
                     <div className={` hidden gap-10 md:flex items-center transition-all duration-500`}>
-                        <button className={`hover:underline decoration-4 decoration-[#5465FF66]  `}>Home</button>
+                        <button onClick={()=>location.href = '/'} className={`hover:underline decoration-4 decoration-[#5465FF66]  `}>Home</button>
                         <div className="container-dropdown relative">
                             <button onClick={() => setServiceVisibility(!serviceVisibility)}
                                     className={`hover:underline decoration-4 decoration-[#5465FF66]`}>Services
@@ -51,8 +51,8 @@ function ServiceDrop({className, isVisible,}: { className: string, isVisible: bo
         <div className={className} style={{visibility: `${isVisible ? 'visible': 'hidden'}`, opacity: `${isVisible ? 1 : 0}`}}>
             <button onClick={()=>location.href = '/cleaning-window'} className="w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start">Window Cleaning</button>
             <button onClick={()=> location.href = '/residential-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Residential Cleaning</button>
-            <button onClick={()=> location.href = '/residential-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Commercial Cleaning</button>
-            <button onClick={()=> location.href = '/residential-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>End of Lease Cleaning</button>
+            <button onClick={()=> location.href = '/commercial-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Commercial Cleaning</button>
+            <button onClick={()=> location.href = '/end-of-lease-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>End of Lease Cleaning</button>
         </div>
     )
 }
@@ -82,14 +82,14 @@ function Menu({visible}: { visible: boolean }) {
                 height: serviceState ? '3.5rem' : '0'
             }}>Residential Cleaning
             </button>
-            <button onClick={() => location.href = '/'}
+            <button onClick={() => location.href = '/commercial-cleaning'}
                     className="px-8 text-start font-medium transition-all delay-200 duration-500" style={{
                 visibility: `${serviceState ? 'visible' : 'hidden'}`,
                 opacity: serviceState ? 1 : 0,
                 height: serviceState ? '3.5rem' : '0'
             }}>Commercial Cleaning
             </button>
-            <button onClick={() => location.href = '/'}
+            <button onClick={() => location.href = '/end-of-lease-cleaning'}
                     className="px-8 text-start font-medium transition-all delay-300 duration-500" style={{
                 visibility: `${serviceState ? 'visible' : 'hidden'}`,
                 opacity: serviceState ? 1 : 0,
