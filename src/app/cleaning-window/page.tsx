@@ -14,11 +14,11 @@ export default function WindowCleaning() {
                         </p>
                         <div className={`flex gap-5 flex-col sm:flex-row mt-5`}>
                             <button
-                                className={`p-2 w-32 bg-[#5465FF] hover:bg-white hover:text-[#5465FF] border border-[#5465FF] rounded text-white`}>Get
+                                className={`p-2 max-w-40 w-full bg-[#5465FF] transition-all  hover:bg-[#9BB1FF] border border-[#5465FF] rounded text-white`}>Get
                                 a Quote
                             </button>
                             <button
-                                className={`py-2 w-32 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Call
+                                className={`py-2 max-w-40 w-full bg-[#9BB1FF] hover:bg-[#9BB1FF66] hover:border hover:border-[#9BB1FF] border transition-all rounded text-black`}>Call
                                 us Now
                             </button>
                         </div>
