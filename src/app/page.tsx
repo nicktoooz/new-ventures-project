@@ -13,6 +13,7 @@ import mopping from '../../public/mopping.png';
 import desktop from '../../public/desktop.png'
 import key from '../../public/key.png'
 import window from '../../public/window.png'
+import successAnim from '../../public/success.json'
 import ReviewCard from '@/app/(components)/ReviewCard';
 import {useState} from "react";
 import axios from "axios";
@@ -30,7 +31,7 @@ export default function Home() {
 
     return (
         <div>
-            <SuccessMessage visible={issucces}/>
+            <SuccessMessage visible={issucces} onClose={()=>setSucces(false)}/>
             <main className={`flex bg-[#dde4fb] flex-col`}>
                 {/*first div*/}
                 {/*Hero*/}
@@ -425,6 +426,7 @@ export default function Home() {
                             </div>
 
                             <button onClick={(e) => {
+
                                 if (name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
                                     axios.post("/api/send-mail", {
                                         "name": name,
@@ -443,9 +445,6 @@ export default function Home() {
                                         setService("")
                                         setDetails("")
                                         setSucces(true)
-                                        setTimeout(() => {
-                                            setSucces(false)
-                                        }, 3000)
                                         console.log("success")
 
                                     }).catch(err => {
@@ -468,17 +467,17 @@ export default function Home() {
     );
 }
 
-function SuccessMessage({visible}: { visible: boolean }) {
-    return (
-        visible && (
-            <div className={`h-screen w-full fixed bg-[#00000026] z-50 grid place-items-center top-0 left-0`}>
-                <div className={`max-w-96 h-96 bg-green-200`}>
-                    <Player src={`https://lottie.host/embed/a6d20e69-c723-43a1-a124-b6276bf7a133/lQ95IULP3M.json`}
+function SuccessMessage({visible, onClose}: { visible: boolean, onClose: ()=>void }) {
+    return visible && (
+            <div className={`h-screen  w-full fixed bg-[#00000026] z-50 grid place-items-center top-0 left-0`}>
+                <div className={`max-w-96 px-8 py-12 flex flex-col items-center bg-white rounded-lg`}>
+                    <Player src={successAnim} keepLastFrame
                             autoplay style={{height: '300px', width: '300px'}}/>
-                    <h1>LOREM</h1>
+                    <h1 className={`text-center text-2xl font-medium`}>Quote sent!</h1>
+                    <p className={`text-center mt-6`}>Vestibulum ac mi lorem. Suspendisse sed viverra lorem. Fusce condimentum facilisis mollis.</p>
+                    <button onClick={()=>onClose()} className={`bg-[#5465FF] text-[1.2em] text-white rounded px-8 py-2 mt-6`}>Done</button>
                 </div>
             </div>
-        )
     )
 
 }
