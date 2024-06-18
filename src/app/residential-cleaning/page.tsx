@@ -1,4 +1,5 @@
 import cleaners from '../../../public/Frame 101.png'
+import ImageGrid from "@/app/(components)/ImageGrid";
 
 export default function ResidentialCleaning() {
     return (
@@ -79,13 +80,7 @@ export default function ResidentialCleaning() {
                         life. To find out more about our extensive services or obtain a free, no-obligation quote, call
                         us now!</p>
                 </div>
-                <div className="preview justify-self-end grid aspect-square w-80 grid-cols-4 gap-2.5">
-                    <div className="main bg-red-600 aspect-square col-span-4"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                </div>
+                <ImageGrid/>
             </div>
         </>
 

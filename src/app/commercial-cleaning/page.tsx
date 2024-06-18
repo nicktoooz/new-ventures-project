@@ -1,4 +1,6 @@
 'use client'
+import ImageGrid from "@/app/(components)/ImageGrid";
+
 export default function CommercialCleaning() {
     return (
         < >
@@ -44,13 +46,7 @@ export default function CommercialCleaning() {
                         cleaning, carpet cleaning, window cleaning, and disinfecting. We use only the highest quality
                         cleaning products and equipment to ensure a thorough clean every time.</p>
                 </div>
-                <div className="preview justify-self-center grid aspect-square w-80 grid-cols-4 gap-2.5">
-                    <div className="main bg-red-600 aspect-square col-span-4"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                </div>
+                <ImageGrid/>
             </div>
         </>
     )

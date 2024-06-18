@@ -1,6 +1,8 @@
 'use client'
 
 
+import ImageGrid from "@/app/(components)/ImageGrid";
+
 export default function EndOfLease() {
     return (
         < >
@@ -52,13 +54,8 @@ export default function EndOfLease() {
                     <p className={`mt-12`}>Our professional house cleaning services make it easy to enjoy a spotless home and a hassle-free life. To find out more about our extensive services or obtain a free, no-obligation quote, call us now!</p>
                 </ul>
 
-                <div className="preview justify-self-center  grid aspect-square w-80 grid-cols-4 gap-2.5">
-                    <div className="main bg-red-600 aspect-square col-span-4"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                    <div className="child aspect-square bg-blue-500"></div>
-                </div>
+                <ImageGrid/>
+
             </div>
         </>
     )
