@@ -6,46 +6,77 @@ async function handler(req: NextRequest) {
     const { name, streetAddress, suburb, email, mobileNumber, service, details } = await req.json();
 
     const html = `
-          <div style="background-color: #99afff20">
-            <table style="background-color: #99afff20; padding: 20px; width: 100%;">
-                <tr>
-                    <td style="background-color: #788bff; color: #fff; font-family: Arial, Helvetica, sans-serif; padding: 15px; text-align: start;">
-                        <h1 style="margin: 0;">New Request</h1>
-                    </td>
-                </tr>
-            </table>
-            <table style="background-color: #99afff20; padding: 20px; width: 100%; margin-bottom: 50px;">
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; width: 10em; padding-top: 12px;">Name:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${name}</td>
-                </tr>
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Address:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${streetAddress}</td>
-                </tr>
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Suburb:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${suburb}</td>
-                </tr>
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Email:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${email}</td>
-                </tr>
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Mobile Number:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${mobileNumber}</td>
-                </tr>
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Service:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${service}</td>
-                </tr>
-                <tr>
-                    <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Details:</td>
-                    <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${details}</td>
-                </tr>
-            </table>
-            <a style="background-color: #5465ff; width: fit-content; padding: 12px 50px; font-family: Arial, Helvetica, sans-serif; text-decoration: none; color: white; border-radius: 4px" href="mailto:${email}">Reply</a>
-          </div>
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+<title>Email Template</title>
+</head>
+<body>
+
+  <!--[if mso]>
+  <table width="100%" style="background-color: #99afff20;">
+  <![endif]-->
+
+
+  <!--[if !mso]> -->
+  <table width="100%" style="background-color: #99afff20;">
+  <!-- <![endif]-->
+    <tr>
+      <td>
+        <table width="100%" cellpadding="0" cellspacing="0" style="padding: 20px;">
+          <tr>
+            <td style="background-color: #788bff; color: #fff; font-family: Arial, Helvetica, sans-serif; padding: 15px; text-align: start;">
+              <h1 style="margin: 0;">New Request</h1>
+            </td>
+          </tr>
+        </table>
+        
+        <table width="100%" cellpadding="0" cellspacing="0" style="padding: 20px; margin-bottom: 50px;">
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; width: 10em; padding-top: 12px;">Name:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${name}</td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Address:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${streetAddress}</td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Suburb:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${suburb}</td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Email:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${email}</td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Mobile Number:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${mobileNumber}</td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Service:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${service}</td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding-top: 12px;">Details:</td>
+            <td style="font-family: Arial, Helvetica, sans-serif; padding-top: 12px;">${details}</td>
+          </tr>
+        </table>
+        
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <a style="background-color: #5465ff; padding: 12px 50px; font-family: Arial, Helvetica, sans-serif; text-decoration: none; color: white; border-radius: 4px;" href="mailto:${email}">Reply</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
         `;
 
     const transporter = createTransport({
