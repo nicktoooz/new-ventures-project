@@ -228,7 +228,7 @@ async function handler(req: NextRequest) {
             },
         });
 
-        endpoint.sendMail({
+        const sendMail = await endpoint.sendMail({
             from: 'info@dondenciong.com.au',
             to: email,
             subject: 'Cleaning Enquiry Received',
@@ -257,20 +257,19 @@ async function handler(req: NextRequest) {
           </td>
         </tr>
       </table>
-      `,
-        }).then((res) => {
-            console.log(res.accepted)
-        })
 
-        transporter.sendMail({
+      `,
+        });
+
+        const toInfo = await transporter.sendMail({
             from: 'service@dondenciong.com.au',
             to: 'info@dondenciong.com.au',
             subject: 'New Request',
             html,
-        }).then((res) => {
-            return new NextResponse(JSON.stringify({message: 'Success'}), {status: 200});
-        })
-
+        });
+        console.log(sendMail)
+        console.log(toInfo)
+        return new NextResponse(JSON.stringify({message: 'Success'}), {status: 200});
     } catch (error) {
         return NextResponse.json({message: 'err'});
     }
