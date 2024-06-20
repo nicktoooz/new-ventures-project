@@ -267,9 +267,8 @@ async function handler(req: NextRequest) {
             subject: 'New Request',
             html,
         });
-        console.log(sendMail)
-        console.log(toInfo)
-        return new NextResponse(JSON.stringify({message: 'Success'}), {status: 200});
+
+        return new NextResponse(JSON.stringify({message: 'Success', stat: toInfo, statu:sendMail}), {status: 200});
     } catch (error) {
         return NextResponse.json({message: 'err'});
     }

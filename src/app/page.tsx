@@ -449,7 +449,7 @@ export default function Home() {
                                         setDetails("")
                                         setSuccess(true)
                                         console.log("success")
-
+                                        console.log(res.data)
                                     }).catch(err => {
                                         console.log("error")
                                     })
