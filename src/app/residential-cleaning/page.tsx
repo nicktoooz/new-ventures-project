@@ -5,9 +5,12 @@ export default function ResidentialCleaning() {
     return (
         < >
             <div>
-                <div className={`h-[30em] md:h-96 bg-gray-400 grid place-items-center`}>
-                    <div className="hero-content max-w-[60em] px-10">
-                        <h1 className={`text-3xl md:text-4xl mb-4 font-medium`}>Residential Cleaning</h1>
+                <div
+                    className={`h-[80vh] md:h-[30em] relative after:absolute after:inset-0 after:content-[''] after:bg-gradient-cover  before:opacity-50 before:absolute before:inset-0 before:content-[''] before:h-full before:w-full before:bg-residential-clean before:bg-center grid place-items-center`}>
+
+                    <div className="hero-content z-10 text-white   max-w-[60em] px-10">
+
+                        <h1 className={`text-3xl md:text-4xl mb-4 font-bold`}>Residential Cleaning</h1>
                         <p>
                             We understand the importance of a clean and healthy home. Our professional cleaning team is
                             dedicated to providing top-notch cleaning services tailored to your specific needs. We offer

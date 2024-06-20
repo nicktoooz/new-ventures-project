@@ -26,7 +26,9 @@ export default function Header() {
                     </div>
 
                     <div className={` hidden gap-10 md:flex items-center transition-all duration-500`}>
-                        <button onClick={()=>location.href = '/'} className={`hover:underline decoration-4 decoration-[#5465FF66]  `}>Home</button>
+                        <button onClick={() => location.href = '/'}
+                                className={`hover:underline decoration-4 decoration-[#5465FF66]  `}>Home
+                        </button>
                         <div className="container-dropdown relative">
                             <button onClick={() => setServiceVisibility(!serviceVisibility)}
                                     className={`hover:underline decoration-4 decoration-[#5465FF66]`}>Services
@@ -34,8 +36,11 @@ export default function Header() {
                             <ServiceDrop isVisible={serviceVisibility}
                                          className={`absolute transition-all duration-300 shadow-md py-2 rounded-b-md mt-5 w-fit flex flex-col items-start bg-white text-nowrap`}/>
                         </div>
-                        <button className={`hover:underline decoration-4 decoration-[#5465FF66] `}>About Us</button>
+                        <button onClick={() => location.href = '/about-us'}
+                                className={`hover:underline decoration-4 decoration-[#5465FF66] `}>About Us
+                        </button>
                         <button
+                            onClick={() => location.href = '/contact-us'}
                             className={`border-2 border-[#5465FF] hover:bg-[#5465FF] hover:text-white p-2 rounded-md text-[#5465FF]`}>Contact
                             Us
                         </button>
@@ -48,11 +53,24 @@ export default function Header() {
 
 function ServiceDrop({className, isVisible,}: { className: string, isVisible: boolean }) {
     return (
-        <div className={className} style={{visibility: `${isVisible ? 'visible': 'hidden'}`, opacity: `${isVisible ? 1 : 0}`}}>
-            <button onClick={()=>location.href = '/cleaning-window'} className="w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start">Window Cleaning</button>
-            <button onClick={()=> location.href = '/residential-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Residential Cleaning</button>
-            <button onClick={()=> location.href = '/commercial-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Commercial Cleaning</button>
-            <button onClick={()=> location.href = '/end-of-lease-cleaning'} className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>End of Lease Cleaning</button>
+        <div className={className}
+             style={{visibility: `${isVisible ? 'visible' : 'hidden'}`, opacity: `${isVisible ? 1 : 0}`}}>
+            <button onClick={() => location.href = '/cleaning-window'}
+                    className="w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start">Window
+                Cleaning
+            </button>
+            <button onClick={() => location.href = '/residential-cleaning'}
+                    className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Residential
+                Cleaning
+            </button>
+            <button onClick={() => location.href = '/commercial-cleaning'}
+                    className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>Commercial
+                Cleaning
+            </button>
+            <button onClick={() => location.href = '/end-of-lease-cleaning'}
+                    className={`w-full transition-all duration-500 px-5 py-2 hover:bg-[#788bff66] text-start`}>End of
+                Lease Cleaning
+            </button>
         </div>
     )
 }
@@ -61,7 +79,7 @@ function Menu({visible}: { visible: boolean }) {
     const [serviceState, setServiceState] = useState(false)
     return (
         <div
-            className={`z-20 flex flex-col w-full   mt-16 bg-white absolute text-gray-900 top-0 left-0 transition-all duration-500`}
+            className={`z-20 shadow-md flex flex-col w-full mt-16 bg-white absolute text-gray-900 top-0 left-0 transition-all duration-500`}
             style={{transform: `translateY(${visible ? '0' : '-100%'})`}}>
             <button onClick={() => location.href = '/'} className={`h-14 px-4 text-start font-medium block`}>Home
             </button>
@@ -96,7 +114,8 @@ function Menu({visible}: { visible: boolean }) {
                 height: serviceState ? '3.5rem' : '0'
             }}>End-of-Lease Cleaning
             </button>
-            <button onClick={() => location.href = '/'} className={`h-14 px-4 text-start font-medium block`}>About Us
+            <button onClick={() => location.href = '/about-us'}
+                    className={`h-14 px-4 text-start font-medium block`}>About Us
             </button>
             <button onClick={() => location.href = '/contact-us'}
                     className={`h-14 px-4 text-start font-medium block`}>Contact Us

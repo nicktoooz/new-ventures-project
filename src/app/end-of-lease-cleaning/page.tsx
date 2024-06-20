@@ -7,9 +7,11 @@ export default function EndOfLease() {
     return (
         < >
             <div>
-                <div className={`h-[30em] md:h-96 bg-gray-400 grid place-items-center`}>
-                    <div className="hero-content max-w-[60em] px-10">
-                        <h1 className={`text-3xl md:text-4xl mb-4 font-medium`}>End of Lease Cleaning </h1>
+                <div
+                    className={`h-[80vh] md:h-[30em]  relative after:absolute after:inset-0 after:content-[''] after:bg-gradient-cover  before:opacity-50 before:absolute before:inset-0 before:content-[''] before:h-full before:w-full before:bg-eol-clean before:bg-center grid place-items-center`}>
+                    <div className="hero-content z-10 text-white   max-w-[60em] px-10">
+
+                        <h1 className={`text-3xl md:text-4xl mb-4 font-bold`}>End of Lease Cleaning </h1>
                         <p>
                             Our end of lease cleaning service is designed to meet the stringent requirements of property
                             managers and landlords. We provide a comprehensive clean to ensure you get your full
@@ -29,7 +31,7 @@ export default function EndOfLease() {
                 </div>
             </div>
             <div
-                    className="grid grid-rows-1 px-10 my-10 md:grid-cols-2 gap-10 md:gap-40 justify-center place-content-center">
+                className="grid grid-rows-1 px-10 my-10 md:grid-cols-2 gap-10 md:gap-40 justify-center place-content-center">
                 <ul className={`md:ml-32`}>
                     <li className={`mt-2`}><p><span className={`font-bold`}><span className={`text-[#788BFF]`}>&#10004; </span>General Cleaning: </span>This
                         involves wiping down surfaces,
