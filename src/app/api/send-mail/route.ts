@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { createTransport } from 'nodemailer';
+import {NextRequest, NextResponse} from 'next/server';
+import {createTransport} from 'nodemailer';
 
 async function handler(req: NextRequest) {
-  try {
-    const { name, streetAddress, suburb, email, mobileNumber, service, details } = await req.json();
+    try {
+        const {name, streetAddress, suburb, email, mobileNumber, service, details} = await req.json();
 
-    const html = `
+        const html = `
           <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -208,31 +208,31 @@ async function handler(req: NextRequest) {
 
         `;
 
-    const transporter = createTransport({
-      host: 'mail.dondenciong.com.au',
-      port: 465,
-      secure: true,
-      auth: {
-        user: 'service@dondenciong.com.au',
-        pass: 'tB37pvpH.29A',
-      },
-    });
+        const transporter = createTransport({
+            host: 'mail.dondenciong.com.au',
+            port: 465,
+            secure: true,
+            auth: {
+                user: 'service@dondenciong.com.au',
+                pass: 'tB37pvpH.29A',
+            },
+        });
 
-    const endpoint = createTransport({
-      host: 'mail.dondenciong.com.au',
-      port: 465,
-      secure: true,
-      auth: {
-        user: 'info@dondenciong.com.au',
-        pass: 'eVKy59vLghe2xMr',
-      },
-    });
+        const endpoint = createTransport({
+            host: 'mail.dondenciong.com.au',
+            port: 465,
+            secure: true,
+            auth: {
+                user: 'info@dondenciong.com.au',
+                pass: 'eVKy59vLghe2xMr',
+            },
+        });
 
-    await endpoint.sendMail({
-      from: 'info@dondenciong.com.au',
-      to: email,
-      subject: 'Cleaning Enquiry Received',
-      html: `
+        endpoint.sendMail({
+            from: 'info@dondenciong.com.au',
+            to: email,
+            subject: 'Cleaning Enquiry Received',
+            html: `
       <table style="font-family: Arial, Helvetica, sans-serif">
         <tr>
           <td>
@@ -257,21 +257,23 @@ async function handler(req: NextRequest) {
           </td>
         </tr>
       </table>
-
       `,
-    });
+        }).then((res) => {
+            console.log(res.accepted)
+        })
 
-    await transporter.sendMail({
-      from: 'service@dondenciong.com.au',
-      to: 'info@dondenciong.com.au',
-      subject: 'New Request',
-      html,
-    });
+        transporter.sendMail({
+            from: 'service@dondenciong.com.au',
+            to: 'info@dondenciong.com.au',
+            subject: 'New Request',
+            html,
+        }).then((res) => {
+            return new NextResponse(JSON.stringify({message: 'Success'}), {status: 200});
+        })
 
-    return new NextResponse(JSON.stringify({ message: 'Success' }), { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: 'err' });
-  }
+    } catch (error) {
+        return NextResponse.json({message: 'err'});
+    }
 }
 
-export { handler as POST };
+export {handler as POST};
