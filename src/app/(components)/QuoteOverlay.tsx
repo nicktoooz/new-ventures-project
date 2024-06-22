@@ -14,12 +14,17 @@ export default function Quote({visible, onClose}) {
     const [service, setService] = useState('')
     const [details, setDetails] = useState('')
     const [success, setSuccess] = useState(false)
+    const [buttonMessage, setButtonMessage] = useState('Send Message')
 
     return visible && (
         <div
-            onClick={() => {
-                onClose()
-                resetForm()
+            onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                if (buttonMessage === 'Send Message') {
+                    onClose()
+                    resetForm()
+                }
             }}
 
             className={`fixed top-0 left-0 w-full h-screen bg-[#00000080] px-5 z-[25] flex justify-center md:items-center `}>
@@ -119,7 +124,9 @@ export default function Quote({visible, onClose}) {
                     <button onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
+                        if (buttonMessage !== 'Send Message') return;
                         if (name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
+                            setButtonMessage('Sending...')
                             axios.post("/api/send-mail", {
                                 "name": name,
                                 "streetAddress": streetAddress,
@@ -130,6 +137,7 @@ export default function Quote({visible, onClose}) {
                                 "details": details
                             }).then(res => {
                                 resetForm()
+                                setButtonMessage("Send Message")
                                 setSuccess(true)
                                 console.log("success")
                                 console.log(res.data)
@@ -142,9 +150,7 @@ export default function Quote({visible, onClose}) {
 
                     }} className={`bg-[#5465FF] rounded-md max-w-64 w-full p-3 text-white`}
                             type={`submit`}
-                    > Send
-                        Message
-                    </button>
+                    >{buttonMessage}</button>
                 </form>
             </div>
         </div>

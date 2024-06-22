@@ -13,11 +13,9 @@ import mopping from '../../public/mopping.png';
 import desktop from '../../public/desktop.png'
 import key from '../../public/key.png'
 import window from '../../public/window.png'
-import successAnim from '../../public/success.json'
 import ReviewCard from '@/app/(components)/ReviewCard';
 import {useState} from "react";
 import axios from "axios";
-import {Player} from "@lottiefiles/react-lottie-player";
 import {SuccessMessage} from "@/app/(components)/SuccessMessage";
 
 export default function Home() {
@@ -29,6 +27,7 @@ export default function Home() {
     const [service, setService] = useState('')
     const [details, setDetails] = useState('')
     const [success, setSuccess] = useState(false)
+    const [buttonMessage, setButtonMessage] = useState('Send Message')
 
     return (
         <div>
@@ -333,6 +332,7 @@ export default function Home() {
                                     a Quote
                                 </button>
                                 <button
+                                    onClick={()=>location.href = 'tel:+61406780941'}
                                     className={`py-2 px-4 bg-white hover:bg-[#5465FF] hover:text-white rounded text-[#5465FF] border border-[#5465FF]`}>Call
                                     us Now
                                 </button>
@@ -448,37 +448,39 @@ export default function Home() {
                             <button onClick={(e) => {
                                 e.preventDefault()
                                 e.stopPropagation()
-                                if (name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
-                                    axios.post("/api/send-mail", {
-                                        "name": name,
-                                        "streetAddress": streetAddress,
-                                        "suburb": suburb,
-                                        "email": emailAddress,
-                                        "mobileNumber": mobileNumber,
-                                        "service": service,
-                                        "details": details
-                                    }).then(res => {
-                                        setName("")
-                                        setStreetAddress("")
-                                        setSuburb("")
-                                        setEmailAddress("")
-                                        setMobileNumber("")
-                                        setService("")
-                                        setDetails("")
-                                        setSuccess(true)
-                                        console.log("success")
-                                        console.log(res.data)
-                                    }).catch(err => {
-                                        console.log("error")
-                                    })
-                                } else {
-                                    console.log('err')
+                                if (buttonMessage === 'Send Message') {
+                                    if (name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
+                                        setButtonMessage('Sending...')
+                                        axios.post("/api/send-mail", {
+                                            "name": name,
+                                            "streetAddress": streetAddress,
+                                            "suburb": suburb,
+                                            "email": emailAddress,
+                                            "mobileNumber": mobileNumber,
+                                            "service": service,
+                                            "details": details
+                                        }).then(res => {
+                                            setName("")
+                                            setStreetAddress("")
+                                            setSuburb("")
+                                            setEmailAddress("")
+                                            setMobileNumber("")
+                                            setService("")
+                                            setDetails("")
+                                            setButtonMessage('Send Message')
+                                            setSuccess(true)
+                                            console.log("success")
+                                            console.log(res.data)
+                                        }).catch(err => {
+                                            console.log("error")
+                                        })
+                                    } else {
+                                        console.log('err')
+                                    }
                                 }
 
                             }} className={`bg-[#5465FF] rounded-md max-w-64 w-full p-3 text-white`}
-                                    type={`submit`}> Send
-                                Message
-                            </button>
+                                    type={`submit`}>{buttonMessage}</button>
                         </form>
                     </div>
                 </div>

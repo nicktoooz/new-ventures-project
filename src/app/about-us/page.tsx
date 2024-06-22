@@ -11,8 +11,8 @@ export default function AboutUs() {
                     className={`text-black`}>Us</span></h1>
                 <div className="flex max-w-[70em] m-auto items-center gap-8 px-8 flex-col-reverse md:flex-row justify-center">
                     <div className="">
-                        <h1 className="text-2xl font-medium">Don Denciong Cleaning Services:</h1>
-                        <h1 className="text-2xl font-medium">Where <span
+                        <h1 className="text-2xl font-semibold">Don Denciong Cleaning Services:</h1>
+                        <h1 className="text-2xl font-semibold">Where <span
                             className={`text-[#5465FF]`}>Cleanliness</span> Meets Excellence!</h1>
                         <p className={`mt-4`}>At Don Denciong Cleaning Services, we pride ourselves on delivering top-notch cleaning
                             solutions tailored to meet your specific needs. Our team brings decades of cleaning
