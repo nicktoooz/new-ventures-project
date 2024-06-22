@@ -29,7 +29,7 @@ export default function Quote({visible, onClose}) {
             }}/>
             <div
                 onClick={(e) => e.stopPropagation()}
-                className={`flex flex-col max-w-[35em] mt-5 md:mt-0 h-fit bg-[#ced7f8] flex-1 w-full p-4 rounded-xl gap-3 shadow items-center`}>
+                className={`flex flex-col max-w-[35em] mt-16 md:mt-0 h-fit bg-[#ced7f8]  flex-1 w-full p-4 rounded-xl gap-3 shadow items-center`}>
                 <h1 className={`text-4xl font-semibold self-start`}>Send a Quote</h1>
                 <form action="#" className={`flex flex-col items-center gap-3 w-full`}>
                     <div className="relative w-full">
