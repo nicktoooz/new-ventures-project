@@ -2,6 +2,7 @@
 import ImageGrid from "@/app/(components)/ImageGrid";
 import {useState} from "react";
 import Quote from "@/app/(components)/QuoteOverlay";
+import {SuccessMessage} from "@/app/(components)/SuccessMessage";
 
 export default function CommercialCleaning() {
     const [quoteVisible, setQuoteVisible] = useState(false)

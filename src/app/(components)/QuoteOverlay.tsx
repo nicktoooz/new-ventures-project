@@ -1,7 +1,7 @@
 'use client'
 import axios from "axios";
 import {useState} from "react";
-import {SuccessMessage} from "@/app/page";
+import {SuccessMessage} from "@/app/(components)/SuccessMessage";
 
 // @ts-ignore
 export default function Quote({visible, onClose}) {
