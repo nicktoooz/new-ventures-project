@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function ImageGrid() {
+// @ts-ignore
+export default function ImageGrid({className}) {
 
     const images = ['https://picsum.photos/1000?1', 'https://picsum.photos/1000?2', 'https://picsum.photos/1000?3', 'https://picsum.photos/1000?4']
     const [currentImage, setCurrentImage] = useState(images[0])
@@ -12,7 +13,7 @@ export default function ImageGrid() {
     }
 
     return (
-        <div className="preview justify-self-center grid aspect-square w-80 grid-cols-4 gap-2.5">
+        <div className={`${className} preview justify-self-center grid aspect-square w-80 grid-cols-4 gap-2.5`}>
             <div className="main bg-red-600 h-80 overflow-hidden col-span-4">
                 <Image src={currentImage} alt={'Current Image'} className={`w-full hover:scale-125 transition-all duration-200`} width={700} height={700} objectFit="cover" />
             </div>

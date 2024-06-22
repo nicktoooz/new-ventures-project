@@ -1,9 +1,13 @@
 'use client'
 import ImageGrid from "@/app/(components)/ImageGrid";
+import {useState} from "react";
+import Quote from "@/app/(components)/QuoteOverlay";
 
 export default function CommercialCleaning() {
+    const [quoteVisible, setQuoteVisible] = useState(false)
     return (
         < >
+            <Quote visible={quoteVisible} onClose={() => setQuoteVisible(!quoteVisible)}/>
             <div>
                 <div
                     className={`h-[80vh] md:h-[30em]  relative after:absolute after:inset-0 after:content-[''] after:bg-gradient-cover  before:opacity-50 before:absolute before:inset-0 before:content-[''] before:h-full before:w-full before:bg-commercial-clean before:bg-center grid place-items-center`}>
@@ -18,11 +22,13 @@ export default function CommercialCleaning() {
                         </p>
                         <div className={`flex gap-5 flex-col sm:flex-row mt-5`}>
                             <button
-                                className={`p-2 max-w-40 w-full bg-[#5465FF] transition-all  hover:bg-[#9BB1FF] border border-[#5465FF] rounded text-white`}>Get
+                                onClick={() => setQuoteVisible(!quoteVisible)}
+                                className={`p-2 max-w-40 w-full bg-[#5465FF] transition-all  hover:bg-[#6684ef] rounded text-white`}>Get
                                 a Quote
                             </button>
                             <button
-                                className={`py-2 max-w-40 w-full bg-[#9BB1FF] hover:bg-[#9BB1FF66] hover:border hover:border-[#9BB1FF] border transition-all rounded text-black`}>Call
+                                onClick={() => location.href = 'tel:+61406780941'}
+                                className={`py-2 max-w-40 w-full bg-[#9BB1FF] hover:bg-[#819bf7] transition-all rounded text-black`}>Call
                                 us Now
                             </button>
                         </div>
@@ -52,7 +58,7 @@ export default function CommercialCleaning() {
                         cleaning, carpet cleaning, window cleaning, and disinfecting. We use only the highest quality
                         cleaning products and equipment to ensure a thorough clean every time.</p>
                 </div>
-                <ImageGrid/>
+                <ImageGrid className={``}/>
             </div>
         </>
     )

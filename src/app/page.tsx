@@ -40,14 +40,16 @@ export default function Home() {
                 {/*Hero*/}
                 <div className={`flex mt-5 p-10 justify-around `}>
                     <div>
-                        <div className={`flex gap-14`}>
-                            <section className={`flex gap-3`}>
+                        <div className={`flex flex-col md:flex-row gap-3 md:gap-14`}>
+                            <section className={`flex gap-3`} onClick={() => location.href = 'tel:+61406780941'}
+                            >
                                 <Image className={`aspect-square `} src={phone} alt={``}/>
                                 <p>+61 406 780 941</p>
                             </section>
-                            <section className={`flex gap-3`}>
+                            <section className={`flex gap-3`}
+                                     onClick={() => location.href = 'mailto:info@dondenciong.com.au'}>
                                 <Image className={`aspect-square `} src={email} alt={``}/>
-                                <p>+61 406 780 941</p>
+                                <p>info@dondenciong.com.au</p>
                             </section>
                         </div>
                         <h1 className={`text-4xl font-bold mt-10`}>Don Denciong Cleaning Services:</h1>
@@ -352,12 +354,14 @@ export default function Home() {
                             </h1>
                             <Image className={`aspect-auto w-[32em]`} src={mopping} alt={``}/>
                         </div>
-                        <div
-                            className={`flex flex-col bg-[#ced7f8] flex-1 w-full p-4 rounded-xl gap-5 shadow items-center`}>
+                        <form action={`#`}
+                              className={`flex flex-col bg-[#ced7f8] flex-1 w-full p-4 rounded-xl gap-5 shadow items-center`}>
                             <div className="relative w-full">
                                 <input value={name} onChange={e => setName(e.target.value)} type="text"
                                        className="rounded-md w-full px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                       placeholder=" "
+                                       required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Name :
@@ -368,7 +372,9 @@ export default function Home() {
                                 <input value={streetAddress} onChange={e => setStreetAddress(e.target.value)}
                                        type="text"
                                        className=" w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                       placeholder=" "
+                                       required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Street Address :
@@ -379,7 +385,9 @@ export default function Home() {
                                 <input value={suburb} onChange={e => setSuburb(e.target.value)} type="text"
 
                                        className=" w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                       placeholder=" "
+                                       required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Suburb :
@@ -390,7 +398,9 @@ export default function Home() {
                                 <input value={emailAddress} onChange={e => setEmailAddress(e.target.value)}
                                        type="text"
                                        className=" w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                       placeholder=" "
+                                       required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Email :
@@ -400,7 +410,9 @@ export default function Home() {
                                 <input value={mobileNumber} onChange={e => setMobileNumber(e.target.value)} type="tel"
 
                                        className="  w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                       placeholder=" "
+                                       required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Mobile Number :
@@ -411,7 +423,9 @@ export default function Home() {
                                 <input value={service} onChange={e => setService(e.target.value)} type="text"
 
                                        className="  w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                       placeholder=" "
+                                       required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Service/s Required:
@@ -419,9 +433,11 @@ export default function Home() {
                             </div>
 
                             <div className="relative w-full">
-                                <input value={details} onChange={e => setDetails(e.target.value)} type="text"
-                                       className=" h-24  w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
-                                       placeholder=" "/>
+                                <textarea value={details} onChange={e => setDetails(e.target.value)}
+                                          className=" h-24  w-full rounded-md px-2.5 pb-2.5 pt-5 text-sm  border-[#5465FF] border outline-[#5465FF]  peer"
+                                          placeholder=" "
+                                          required
+                                />
                                 <label htmlFor="Name"
                                        className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Please provide any other relevant details.
@@ -429,7 +445,8 @@ export default function Home() {
                             </div>
 
                             <button onClick={(e) => {
-
+                                e.preventDefault()
+                                e.stopPropagation()
                                 if (name && streetAddress && suburb && emailAddress && mobileNumber && service && details) {
                                     axios.post("/api/send-mail", {
                                         "name": name,
@@ -457,10 +474,11 @@ export default function Home() {
                                     console.log('err')
                                 }
 
-                            }} className={`bg-[#5465FF] rounded-md max-w-64 w-full p-3 text-white`}> Send
+                            }} className={`bg-[#5465FF] rounded-md max-w-64 w-full p-3 text-white`}
+                                    type={`submit`}> Send
                                 Message
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 {/*sixth div*/}
@@ -470,7 +488,8 @@ export default function Home() {
     );
 }
 
-function SuccessMessage({visible, onClose}: { visible: boolean, onClose: () => void }) {
+// @ts-ignore
+export function SuccessMessage({visible, onClose}: { visible: boolean, onClose: () => void }) {
     return visible && (
         <div className={`h-screen  w-full fixed bg-[#00000026] z-50 grid place-items-center top-0 left-0`}>
             <div className={`max-w-96 mx-8 px-8 py-12 flex flex-col items-center bg-white rounded-lg`}>
