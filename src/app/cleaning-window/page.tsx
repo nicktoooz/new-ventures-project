@@ -7,7 +7,7 @@ import {SuccessMessage} from "@/app/(components)/SuccessMessage";
 export default function WindowCleaning() {
     const [quoteVisible, setQuoteVisible] = useState(false)
     return (
-        < >
+        <>
             <Quote visible={quoteVisible} onClose={()=>setQuoteVisible(!quoteVisible)}/>
             <div>
                 <div className={`h-[80vh] md:h-[30em] relative after:absolute after:inset-0 after:content-[''] after:bg-gradient-cover  before:opacity-50 before:absolute before:inset-0 before:content-[''] before:h-full before:w-full before:bg-window-clean before:bg-center grid place-items-center`}>

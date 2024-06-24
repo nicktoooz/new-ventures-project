@@ -16,7 +16,17 @@ import window from '../../public/window.png'
 import ReviewCard from '@/app/(components)/ReviewCard';
 import {useState} from "react";
 import axios from "axios";
+import chevronLeft from '../../public/chevron_left.svg'
+import chevronRight from '../../public/chevron_right.svg'
+
 import {SuccessMessage} from "@/app/(components)/SuccessMessage";
+import Header from './Header';
+import Footer from './Footer';
+
+type ReviewRange = {
+    start: number,
+    end: number
+}
 
 export default function Home() {
     const [name, setName] = useState('')
@@ -28,9 +38,51 @@ export default function Home() {
     const [details, setDetails] = useState('')
     const [success, setSuccess] = useState(false)
     const [buttonMessage, setButtonMessage] = useState('Send Message')
+    const [reviewRange, setReviewRange] = useState<ReviewRange>({start: 0, end: 3})
+
+    const reviews = [
+        {
+            user: 'John Doe 1',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 2',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 3',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 4',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 5',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 6',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 7',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 8',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        },
+        {
+            user: 'John Doe 9',
+            review: 'Lorem ipsum dolor sit amet consectetur adipiscing elit'
+        }
+       
+    ]
 
     return (
         <div>
+            <Header/>
             <SuccessMessage visible={success} onClose={() => {
                 setSuccess(false)
                 location.href = '/'
@@ -288,16 +340,32 @@ export default function Home() {
                     </h1>
                     <div className={`mt-10 items-center max-w-[80em] flex flex-col `}>
                         <div className={`flex flex-wrap gap-10 p-10 items-center justify-center`}>
-                            <ReviewCard/>
-                            <ReviewCard/>
-                            <ReviewCard/>
-                            <ReviewCard/>
+                            {reviews.map((e,i)=>{
+                                if (i >= reviewRange.start && i <= reviewRange.end) {
+                                    return <ReviewCard name={e.user} review={e.review} />
+                                }
+                            })}
                         </div>
                         <div className={`flex gap-8 mt-5`}>
                             <button
-                                className={`flex w-16 h-16 rounded-full border-4 border-[#5465FF] justify-center items-center`}></button>
+                                onClick={(e)=>{
+                                    e.preventDefault()  
+                                    e.stopPropagation()  
+                                    console.log('sub',reviewRange)
+                                    if ((reviewRange.start-1) <= 0) return
+                                    setReviewRange({start: reviewRange.start-4, end: reviewRange.end-4})
+                     
+                                }}
+                                className={`flex w-16 h-16 rounded-full border-4 border-[#5465FF] hover:bg-[#b7bdf9] transition-all duration-200 justify-center items-center text-2xl text-white`}><Image className='translate-x-1' src={chevronLeft} alt=''/></button>
                             <button
-                                className={`flex w-16 h-16 rounded-full border-4 border-[#5465FF] bg-[#5465FF] justify-center items-center`}></button>
+                                    onClick={(e)=>{
+                                    e.preventDefault()
+                                    e.stopPropagation()  
+                                    if (!reviews[reviewRange.end + 1]) return
+                                    console.log('add', reviewRange)
+                                    setReviewRange({start: reviewRange.start+4, end: reviewRange.end+4})
+                                }}
+                                className={`flex w-16 h-16 rounded-full border-4 border-[#5465FF] hover:bg-[#b7bdf9] transition-all duration-200 justify-center items-center text-2xl text-white`}><Image src={chevronRight} alt=''/></button>
                         </div>
                     </div>
                 </div>
@@ -487,6 +555,7 @@ export default function Home() {
                 {/*sixth div*/}
 
             </main>
+            <Footer/>
         </div>
     );
 }
