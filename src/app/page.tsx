@@ -342,7 +342,7 @@ export default function Home() {
                         <div className={`flex flex-wrap gap-10 p-10 items-center justify-center`}>
                             {reviews.map((e,i)=>{
                                 if (i >= reviewRange.start && i <= reviewRange.end) {
-                                    return <ReviewCard name={e.user} review={e.review} />
+                                    return <ReviewCard key={i} name={e.user} review={e.review} />
                                 }
                             })}
                         </div>
