@@ -422,7 +422,7 @@ export default function Home() {
                             Our <span className={` text-[#5465FF]`}>Customer Says</span>
                         </h1>
                         <div ref={reviewRef}
-                             className={`mt-10 h-[75em] justify-center items-center max-w-[80em] flex flex-col `}>
+                             className={`mt-10 h-[75em] md:h-[40em] justify-center items-center max-w-[80em] flex flex-col `}>
                             {inViewRef && (
                                 <div className={`flex flex-wrap gap-10 p-10 items-center justify-center`}>
                                     {reviews.map((e, i) => {
