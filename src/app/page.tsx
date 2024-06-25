@@ -169,7 +169,7 @@ export default function Home() {
                     {/*second div*/}
                     {/*Our Services*/}
                     <div ref={serviceRef}
-                         className={`flex flex-col items-center bg-white h-[90em] md:h-[45em] py-16 px-8`}>
+                         className={`flex flex-col items-center bg-white h-[100em] md:h-[45em] py-16 px-8`}>
                         <h1 className={`text-4xl font-bold`}>
                             Our <span className={`text-[#5465FF]`}>Services</span>
                         </h1>
@@ -422,7 +422,7 @@ export default function Home() {
                             Our <span className={` text-[#5465FF]`}>Customer Says</span>
                         </h1>
                         <div ref={reviewRef}
-                             className={`mt-10 h-[40em] justify-center items-center max-w-[80em] flex flex-col `}>
+                             className={`mt-10 h-[75em] justify-center items-center max-w-[80em] flex flex-col `}>
                             {inViewRef && (
                                 <div className={`flex flex-wrap gap-10 p-10 items-center justify-center`}>
                                     {reviews.map((e, i) => {
