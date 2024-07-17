@@ -9,8 +9,9 @@ export default function Header() {
     <>
       <header className={`h-16 text-sm relative bg-white z-40 shadow-md flex justify-center items-center `}>
         <div className="flex justify-between px-5 items-center flex-1 max-w-[90em] ">
-          <div>
+          <div className='flex items-center gap-4'>
             <Image src={logo} alt="" className="aspect-auto w-10" />
+            <h1 className='font-bold uppercase text-2xl'>Don Denciong</h1>
           </div>
           <div className={`header-right z-50`}>
             <div className={`md:hidden`} onClick={() => setMenu(!menuVisibility)}>
