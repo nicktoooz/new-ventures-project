@@ -1,50 +1,56 @@
 'use client';
 import { useState } from 'react';
-
+import Image from 'next/image';
+import logo from '../../public/logo.svg';
 export default function Header() {
   const [menuVisibility, setMenu] = useState(false);
   const [serviceVisibility, setServiceVisibility] = useState(false);
   return (
     <>
-      <header className={`h-12 text-sm relative bg-white z-40 shadow-md flex justify-between px-5 items-center `}>
-        <div>
-          <h1>Don Denciong</h1>
-        </div>
-        <div className={`header-right z-50`}>
-          <div className={`md:hidden`} onClick={() => setMenu(!menuVisibility)}>
-            <span
-              className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500`}
-              style={{
-                rotate: `${menuVisibility ? '45deg' : '0deg'}`,
-                transform: `${menuVisibility ? 'translateY(8px) translateX(4px)' : 'translateY(0px)'}`,
-              }}
-            ></span>
-            <span className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500 my-1`} style={{ opacity: `${menuVisibility ? 0 : 1}` }}></span>
-            <span
-              className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500`}
-              style={{
-                rotate: `${menuVisibility ? '-45deg' : '0deg'}`,
-                transform: `${menuVisibility ? 'translateY(-8px) translateX(4px)' : 'translateY(0px)'}`,
-              }}
-            ></span>
+      <header className={`h-16 text-sm relative bg-white z-40 shadow-md flex justify-center items-center `}>
+        <div className="flex justify-between px-5 items-center flex-1 max-w-[90em] ">
+          <div>
+            <Image src={logo} alt="" className="aspect-auto w-10" />
           </div>
-
-          <div className={` hidden gap-10 md:flex items-center transition-all duration-500`}>
-            <button onClick={() => (location.href = '/')} className={`hover:underline decoration-4 decoration-[#5465ff66]  `}>
-              Home
-            </button>
-            <div className="container-dropdown relative">
-              <button onClick={() => setServiceVisibility(!serviceVisibility)} className={`hover:underline decoration-4 decoration-[#5465FF66]`}>
-                Services
-              </button>
-              <ServiceDrop isVisible={serviceVisibility} className={`absolute transition-all duration-300 shadow-md py-2 rounded-b-md mt-3 w-fit flex flex-col items-start bg-white text-nowrap`} />
+          <div className={`header-right z-50`}>
+            <div className={`md:hidden`} onClick={() => setMenu(!menuVisibility)}>
+              <span
+                className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500`}
+                style={{
+                  rotate: `${menuVisibility ? '45deg' : '0deg'}`,
+                  transform: `${menuVisibility ? 'translateY(8px) translateX(4px)' : 'translateY(0px)'}`,
+                }}
+              ></span>
+              <span className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500 my-1`} style={{ opacity: `${menuVisibility ? 0 : 1}` }}></span>
+              <span
+                className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500`}
+                style={{
+                  rotate: `${menuVisibility ? '-45deg' : '0deg'}`,
+                  transform: `${menuVisibility ? 'translateY(-8px) translateX(4px)' : 'translateY(0px)'}`,
+                }}
+              ></span>
             </div>
-            <button onClick={() => (location.href = '/about-us')} className={`hover:underline decoration-4 decoration-[#5465FF66] `}>
-              About Us
-            </button>
-            <button onClick={() => (location.href = '/contact-us')} className={`hover:underline decoration-4 decoration-[#5465ff66]  `}>
-              Contact Us
-            </button>
+
+            <div className={` hidden gap-10 md:flex items-center transition-all duration-500`}>
+              <button onClick={() => (location.href = '/')} className={`hover:underline decoration-4 decoration-[#5465ff66]  `}>
+                Home
+              </button>
+              <div className="container-dropdown relative">
+                <button onClick={() => setServiceVisibility(!serviceVisibility)} className={`hover:underline decoration-4 decoration-[#5465FF66]`}>
+                  Services
+                </button>
+                <ServiceDrop isVisible={serviceVisibility} className={`absolute transition-all duration-300 shadow-md py-2 rounded-b-md mt-3 w-fit flex flex-col items-start bg-white text-nowrap`} />
+              </div>
+              <button onClick={() => (location.href = '/gallery')} className={`hover:underline decoration-4 decoration-[#5465FF66] `}>
+                Gallery
+              </button>
+              <button onClick={() => (location.href = '/about-us')} className={`hover:underline decoration-4 decoration-[#5465FF66] `}>
+                About Us
+              </button>
+              <button onClick={() => (location.href = '/contact-us')} className={`hover:underline decoration-4 decoration-[#5465ff66]  `}>
+                Contact Us
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -75,7 +81,7 @@ function ServiceDrop({ className, isVisible }: { className: string; isVisible: b
 function Menu({ visible }: { visible: boolean }) {
   const [serviceState, setServiceState] = useState(false);
   return (
-    <div className={`z-[26] shadow-md flex flex-col w-full mt-12 bg-white absolute text-gray-900 top-0 left-0 transition-all duration-500`} style={{ transform: `translateY(${visible ? '0' : '-100%'})` }}>
+    <div className={`z-[26] shadow-md flex flex-col w-full mt-16 bg-white absolute text-gray-900 top-0 left-0 transition-all duration-500`} style={{ transform: `translateY(${visible ? '0' : '-100%'})` }}>
       <button onClick={() => (location.href = '/')} className={`h-14 px-4 text-start font-medium block`}>
         Home
       </button>
@@ -125,6 +131,9 @@ function Menu({ visible }: { visible: boolean }) {
         }}
       >
         End-of-Lease Cleaning
+      </button>
+      <button onClick={() => (location.href = '/gallery')} className={`h-14 px-4 text-start font-medium block`}>
+        Gallery
       </button>
       <button onClick={() => (location.href = '/about-us')} className={`h-14 px-4 text-start font-medium block`}>
         About Us

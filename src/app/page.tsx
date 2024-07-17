@@ -17,7 +17,7 @@ import { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import axios from 'axios';
 import chevronLeft from '../../public/chevron_left.svg';
 import chevronRight from '../../public/chevron_right.svg';
-import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { AnimatePresence, delay, motion, useInView } from 'framer-motion';
 import Header from './Header';
 import gbp from '../../public/save.svg';
 import guarantee from '../../public/guarantee.svg';
@@ -42,44 +42,68 @@ export default function Home() {
     </div>
   );
 }
+
 function Hero() {
+  const variants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: (custom: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: custom },
+    }),
+  };
+  const show = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: (custom: number) => ({
+      opacity: 1,
+      transition: { duration: 0.5, delay: custom },
+    }),
+  };
+
   return (
-    <div className="hero  bg-[#2a2a270d] ">
-      <div className={`flex p-10 justify-center items-center `}>
+    <div className="hero bg-[#2a2a270d]">
+      <div className="flex p-10 justify-center items-center">
         <div>
-          <div className={`flex flex-col  md:flex-row gap-20 md:gap-14`}>
-            <section className={`flex gap-3`} onClick={() => (location.href = 'tel:+61406780941')}>
-              <Image className={`aspect-square `} src={phone} alt={``} />
+          <motion.div className="flex flex-col md:flex-row gap-5 md:gap-14" initial="hidden" animate="visible" variants={variants} custom={0.0}>
+            <section className="flex gap-3" onClick={() => (location.href = 'tel:+61406780941')}>
+              <Image className="aspect-square" src={phone} alt="Phone" />
               <p>+61 406 780 941</p>
             </section>
-            <section className={`flex gap-3`} onClick={() => (location.href = 'mailto:info@dondenciong.com.au')}>
-              <Image className={`aspect-square `} src={email} alt={``} />
+            <section className="flex gap-3" onClick={() => (location.href = 'mailto:info@dondenciong.com.au')}>
+              <Image className="aspect-square" src={email} alt="Email" />
               <p>info@dondenciong.com.au</p>
             </section>
-          </div>
-          <h1 className={`text-4xl font-bold mt-2`}>
-            Where <span className={`bg-gradient-to-r from-[#2A2A27] to-[#E3B04A] bg-clip-text text-transparent`}>Cleanliness</span> Meets Excellence!
-          </h1>
-          <h1 className={`mt-5 text-xl`}>Your New Cleaning Partner!</h1>
-          <h1 className={`text-xl`}>Expert Cleaning for Your Home and Office!</h1>
-          <h1 className={`text-xl`}> We Make Clean Look Easy!</h1>
-          <div className={`gap-4 mt-5  flex`}>
-            <button onClick={() => (location.href = '#quote')} className={`py-4  max-w-40 w-full bg-[#2A2A27] hover:shadow-xl transition-all  hover:translate-y-[-5px] rounded text-white`}>
+          </motion.div>
+          <motion.h1 className="text-4xl font-bold mt-2" initial="hidden" animate="visible" variants={variants} custom={0.2}>
+            Where <span className="bg-gradient-to-r from-[#2A2A27] to-[#E3B04A] bg-clip-text text-transparent">Cleanliness</span> Meets Excellence!
+          </motion.h1>
+          <motion.h1 className="mt-5 text-xl" initial="hidden" animate="visible" variants={variants} custom={0.4}>
+            Your New Cleaning Partner!
+          </motion.h1>
+          <motion.h1 className="text-xl" initial="hidden" animate="visible" variants={variants} custom={0.6}>
+            Expert Cleaning for Your Home and Office!
+          </motion.h1>
+          <motion.h1 className="text-xl" initial="hidden" animate="visible" variants={variants} custom={0.8}>
+            We Make Clean Look Easy!
+          </motion.h1>
+          <div className="gap-4 mt-5 flex">
+            <motion.button initial="hidden" animate="visible" variants={show} custom={1} onClick={() => (location.href = '#quote')} className="py-4 max-w-40 w-full bg-[#2A2A27] hover:shadow-xl transition-all hover:translate-y-[-5px] rounded text-white">
               Send a Quote
-            </button>
-            <button onClick={() => (location.href = '#our-services')} className={`py-4 max-w-40 w-full bg-[#f1d7ac4d] hover:shadow-xl hover:translate-y-[-5px] transition-all rounded text-black`}>
+            </motion.button>
+            <motion.button initial="hidden" animate="visible" variants={show} custom={1} onClick={() => (location.href = '#our-services')} className="py-4 max-w-40 w-full bg-[#f1d7ac4d] hover:shadow-xl hover:translate-y-[-5px] transition-all rounded text-black">
               Learn More
-            </button>
+            </motion.button>
           </div>
         </div>
-        <div className={`hidden md:block`}>
-          <Image className={`aspect-square w-[30em]`} src={image1} alt={``} />
-        </div>
+        <motion.div initial="hidden" animate="visible" variants={show} className="hidden md:block">
+          <Image className="aspect-square w-[30em]" src={image1} alt="Hero Image" />
+        </motion.div>
       </div>
     </div>
   );
 }
-
 function ServiceSection() {
   const services = [
     {
@@ -108,21 +132,42 @@ function ServiceSection() {
     },
   ];
 
+  const variants = {
+    hidden: (direction: number) => ({
+      opacity: 0,
+      x: direction > 0 ? -200 : 200,
+    }),
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <div id="our-services" className="our-services mt-8 mx-8 flex items-center flex-col">
       <h1 className="text-4xl font-bold">
         Our <span className="text-[#E3B04A]">Services</span>
       </h1>
-      <div className="service-section mt-10 grid md:grid-cols-2 gap-10">
-        {services.map((service, index) => (
-          <ServiceCard key={index} url={service.url} image={service.image} title={service.title} desc={service.desc} />
-        ))}
-      </div>
+      <AnimatePresence>
+        <div className="service-section mt-10 grid md:grid-cols-2 gap-10">
+          {services.map((service, index) => (
+            <motion.div key={index} custom={index % 2 === 0 ? 1 : -1} initial="hidden" animate="visible" exit="hidden" variants={variants} className="bg-[#2a2a270d] max-w-[30em] p-10 rounded-lg">
+              <ServiceCard key={index} url={service.url} image={service.image} title={service.title} desc={service.desc} />
+            </motion.div>
+          ))}
+        </div>
+      </AnimatePresence>
     </div>
   );
 }
 
 function WhyChooseDondenciong() {
+  const foo = useRef(null);
+  const inView = useInView(foo);
+
   const reasons = [
     {
       url: 'affordable-rates',
@@ -144,14 +189,26 @@ function WhyChooseDondenciong() {
     },
   ];
 
+  const show = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: (custom: number) => ({
+      opacity: 1,
+      transition: { duration: 0.5, delay: custom },
+    }),
+  };
+
   return (
     <div className="our-services bg-[#2a2a270d] py-20 mt-10  flex items-center flex-col ">
       <h1 className="text-4xl font-bold text-center">
         Why <span className="text-[#E3B04A]">Choose</span> Dondenciong
       </h1>
-      <div className="service-section mt-10 mx-8 justify-center flex flex-wrap md:flex-row flex-col gap-10">
+      <div ref={foo} className="service-section mt-10 mx-8 justify-center flex flex-wrap md:flex-row flex-col gap-10">
         {reasons.map((reason, index) => (
-          <ServiceCard key={index} url={reason.url} image={reason.image} title={reason.title} desc={reason.desc} />
+          <motion.div initial="hidden" key={index} animate={inView && 'visible'} variants={show} custom={index * 0.2} className="bg-[#2a2a270d] max-w-[30em] p-10 rounded-lg">
+            <ServiceCard url={reason.url} image={reason.image} title={reason.title} desc={reason.desc} />
+          </motion.div>
         ))}
       </div>
     </div>
@@ -257,7 +314,7 @@ function OurProcess() {
 
 function ServiceCard({ url, image, title, desc }: { url: string; image: any; title: string; desc: string }) {
   return (
-    <a href={`/${url}`} className="bg-[#2a2a270d] max-w-[30em] p-10 rounded-lg">
+    <a href={`/${url}`} className="w-full h-full">
       <Image className="image-placeholder aspect-square m-auto w-20" src={image} alt="" />
       <h1 className={`text-[#E3B04A] text-center text-2xl font-bold mt-2`}>{title}</h1>
       <p className={`mt-2 opacity-80 text-center`}>{desc}</p>
@@ -268,7 +325,7 @@ function ServiceCard({ url, image, title, desc }: { url: string; image: any; tit
 function ProcessCard({ num, title, desc }: { num: string; title: string; desc: string }) {
   return (
     <div className={`max-w-[32em] p-8 bg-[#f1d7ac33] relative rounded-xl shadow`}>
-      <div className={` aspect-square border-white border-[.5em] w-20 flex justify-center items-center absolute -top-10  md:left-[-30px]  rounded-full  bg-[#2a2a27]`}>
+      <div className={` aspect-square border-[#f7f7f7] border-[.5em] w-20 flex justify-center items-center absolute -top-10  md:left-[-30px]  rounded-full  bg-[#2a2a27]`}>
         <h1 className={`text-4xl font-bold text-[#F1D7AC]`}>{num}</h1>
       </div>
       <h1 className={`mt-3 text-xl font-bold`}>{title}</h1>
@@ -310,10 +367,10 @@ function SpecialOffers() {
             <p className={``}> We Make Clean Look Easy!</p>
           </div>
           <div className={`flex flex-col gap-5 justify-center `}>
-            <button onClick={() => (location.href = '#quote')} className={`p-2 bg-[#2A2A27] rounded  text-white`}>
+            <button onClick={() => (location.href = '#quote')} className={`p-2 bg-[#2A2A27] rounded  text-white hover:shadow-xl hover:translate-y-[-3px] transition-all`}>
               Get a Quote
             </button>
-            <button onClick={() => (location.href = 'tel:+61406780941')} className={`py-2 px-4 bg-[#f1d7ac4d]`}>
+            <button onClick={() => (location.href = 'tel:+61406780941')} className={`py-2 px-4 bg-[#f1d7ac4d] hover:shadow-xl hover:translate-y-[-3px] transition-all`}>
               Call us Now
             </button>
           </div>

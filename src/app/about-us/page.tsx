@@ -17,7 +17,7 @@ export default function AboutUs() {
               Where <span className={`text-[#E3B04A]`}>Cleanliness</span> Meets Excellence!
             </h1>
             <p className={`mt-4`}>At Don Denciong Cleaning Services, we pride ourselves on delivering top-notch cleaning solutions tailored to meet your specific needs. Our team brings decades of cleaning expertise to your doorstep. Our commitment to excellence and passion for cleanliness ensure that every space we touch is left spotless, hygienic, and inviting. We aim to build lasting relationships with our clients through reliable, high-quality cleaning solutions.</p>
-            <button onClick={() => (location.href = '/')} className={`bg-[#2A2A27] text-white rounded px-8 py-2 mt-4`}>
+            <button onClick={() => (location.href = '/#our-services')} className={`bg-[#2A2A27] text-white rounded px-8 py-2 mt-4`}>
               View Services
             </button>
           </div>
