@@ -170,19 +170,16 @@ function WhyChooseDondenciong() {
 
   const reasons = [
     {
-      url: 'affordable-rates',
       image: gbp,
       title: 'Affordable Rates',
       desc: 'Quality cleaning doesn’t have to break the bank. We offer competitive pricing and transparent quotes with no hidden fees.',
     },
     {
-      url: 'satisfaction-guarantee',
       image: guarantee,
       title: 'Satisfaction Guarantee',
       desc: "Your satisfaction is our priority. If you're not happy with our service, we'll make it right.",
     },
     {
-      url: 'no-travel-fees',
       image: notravelfee,
       title: 'No Travel Fees',
       desc: 'We do not charge travel fees, so you can enjoy our services without any hidden costs.',
@@ -207,7 +204,7 @@ function WhyChooseDondenciong() {
       <div ref={foo} className="service-section mt-10 mx-8 justify-center flex flex-wrap md:flex-row flex-col gap-10">
         {reasons.map((reason, index) => (
           <motion.div initial="hidden" key={index} animate={inView && 'visible'} variants={show} custom={index * 0.2} className="bg-[#2a2a270d] max-w-[30em] p-10 rounded-lg">
-            <ServiceCard url={reason.url} image={reason.image} title={reason.title} desc={reason.desc} />
+            <ReasonCard image={reason.image} title={reason.title} desc={reason.desc} />
           </motion.div>
         ))}
       </div>
@@ -319,6 +316,16 @@ function ServiceCard({ url, image, title, desc }: { url: string; image: any; tit
       <h1 className={`text-[#E3B04A] text-center text-2xl font-bold mt-2`}>{title}</h1>
       <p className={`mt-2 opacity-80 text-center`}>{desc}</p>
     </a>
+  );
+}
+
+function ReasonCard({ image, title, desc }: { image: any; title: string; desc: string }) {
+  return (
+    <div className="w-full h-full">
+      <Image className="image-placeholder aspect-square m-auto w-20" src={image} alt="" />
+      <h1 className={`text-[#E3B04A] text-center text-2xl font-bold mt-2`}>{title}</h1>
+      <p className={`mt-2 opacity-80 text-center`}>{desc}</p>
+    </div>
   );
 }
 
