@@ -67,11 +67,11 @@ function Hero() {
       <div className="flex p-10 justify-center items-center">
         <div>
           <motion.div className="flex flex-col md:flex-row gap-5 md:gap-14" initial="hidden" animate="visible" variants={variants} custom={0.0}>
-            <section className="flex gap-3" onClick={() => (location.href = 'tel:+61406780941')}>
+            <section className="flex gap-3 cursor-pointer" onClick={() => (location.href = 'tel:+61406780941')}>
               <Image className="aspect-square" src={phone} alt="Phone" />
               <p>+61 406 780 941</p>
             </section>
-            <section className="flex gap-3" onClick={() => (location.href = 'mailto:info@dondenciong.com.au')}>
+            <section className="flex gap-3 cursor-pointer" onClick={() => (location.href = 'mailto:info@dondenciong.com.au')}>
               <Image className="aspect-square" src={email} alt="Email" />
               <p>info@dondenciong.com.au</p>
             </section>
