@@ -1,11 +1,11 @@
-import {NextRequest, NextResponse} from 'next/server';
-import {createTransport} from 'nodemailer';
+import { NextRequest, NextResponse } from 'next/server';
+import { createTransport } from 'nodemailer';
 
 async function handler(req: NextRequest) {
-    try {
-        const {name, streetAddress, suburb, email, mobileNumber, service, details} = await req.json();
+  try {
+    const { name, streetAddress, suburb, email, mobileNumber, service, details } = await req.json();
 
-        const html = `
+    const html = `
           <!DOCTYPE html>
             <html lang="en">
               <head>
@@ -207,31 +207,31 @@ async function handler(req: NextRequest) {
             </html>
         `;
 
-        const transporter = createTransport({
-            host: 'mail.dondenciong.com.au',
-            port: 465,
-            secure: true,
-            auth: {
-                user: 'service@dondenciong.com.au',
-                pass: 'tB37pvpH.29A',
-            },
-        });
+    const transporter = createTransport({
+      host: process.env.EMAIL_HOST,
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.SERVICE_EMAIL,
+        pass: process.env.SERVICE_PASSWORD,
+      },
+    });
 
-        const endpoint = createTransport({
-            host: 'mail.dondenciong.com.au',
-            port: 465,
-            secure: true,
-            auth: {
-                user: 'info@dondenciong.com.au',
-                pass: 'eVKy59vLghe2xMr',
-            },
-        });
+    const endpoint = createTransport({
+      host: process.env.EMAIL_HOST,
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.INFO_EMAIL,
+        pass: process.env.INFO_PASSWORD,
+      },
+    });
 
-        const sendMail = await endpoint.sendMail({
-            from: 'info@dondenciong.com.au',
-            to: email,
-            subject: 'Cleaning Enquiry Received',
-            html: `
+    const sendMail = await endpoint.sendMail({
+      from: process.env.INFO_EMAIL,
+      to: email,
+      subject: 'Cleaning Enquiry Received',
+      html: `
               <table style="font-family: Arial, Helvetica, sans-serif">
                 <tr>
                   <td>
@@ -257,19 +257,19 @@ async function handler(req: NextRequest) {
                 </tr>
               </table>
       `,
-        });
+    });
 
-        const toInfo = await transporter.sendMail({
-            from: 'service@dondenciong.com.au',
-            to: 'info@dondenciong.com.au',
-            subject: 'New Request',
-            html,
-        });
+    const toInfo = await transporter.sendMail({
+      from: process.env.SERVICE_EMAIL,
+      to: process.env.INFO_EMAIL,
+      subject: 'New Request',
+      html,
+    });
 
-        return new NextResponse(JSON.stringify({message: 'Success', stat: toInfo, statu:sendMail}), {status: 200});
-    } catch (error) {
-        return NextResponse.json({message: 'err'});
-    }
+    return new NextResponse(JSON.stringify({ message: 'Success', stat: toInfo, statu: sendMail }), { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: 'err' });
+  }
 }
 
-export {handler as POST};
+export { handler as POST };
