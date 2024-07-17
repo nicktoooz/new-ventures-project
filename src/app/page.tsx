@@ -217,18 +217,63 @@ function ReviewSection() {
   const reviewData = [
     {
       user: 'Emily R...',
-      desc: 'Fantastic job! The house was sparkling clean.',
+      desc: 'The cleaning service exceeded my expectations! My entire house looked immaculate and smelled wonderful after their visit.',
       rating: 5,
     },
     {
       user: 'Michael T...',
-      desc: 'Very thorough cleaning service. Highly recommend.',
-      rating: 4,
+      desc: 'I am thoroughly impressed with the attention to detail and professionalism of this cleaning service. My office space feels brand new!',
+      rating: 5,
     },
     {
-      user: 'David L.',
-      desc: 'The service was okay, but could be improved.',
-      rating: 2,
+      user: 'David L...',
+      desc: 'Exceptional service! The cleaners were courteous and did a fantastic job. I am delighted with the results!',
+      rating: 5,
+    },
+    {
+      user: 'Sarah M...',
+      desc: 'Absolutely fantastic job! They left my apartment sparkling clean. Will definitely use their services again!',
+      rating: 5,
+    },
+    {
+      user: 'Jennifer P...',
+      desc: 'Outstanding cleaning crew! They transformed my messy home into a spotless sanctuary. Highly recommended!',
+      rating: 5,
+    },
+    {
+      user: 'John S...',
+      desc: "Impressive service from start to finish. The team was professional and thorough. Couldn't be happier!",
+      rating: 5,
+    },
+    {
+      user: 'Jessica W...',
+      desc: 'Excellent attention to detail and exceptional customer service. My house has never looked better!',
+      rating: 5,
+    },
+    {
+      user: 'Andrew B...',
+      desc: "Top-notch cleaning service! They tackled every corner with precision. I'm beyond satisfied with their work!",
+      rating: 5,
+    },
+    {
+      user: 'Emma G...',
+      desc: 'Superb cleaning job! The cleaners were efficient and left everything spotless. Highly recommended!',
+      rating: 5,
+    },
+    {
+      user: 'Matthew H...',
+      desc: 'Very pleased with the quality of service. The team was friendly and professional. Will definitely hire them again!',
+      rating: 5,
+    },
+    {
+      user: 'Olivia F...',
+      desc: 'Exceptional cleaning service! They went above and beyond to ensure every detail was perfect. 10/10!',
+      rating: 5,
+    },
+    {
+      user: 'Daniel K...',
+      desc: 'Amazing job! The cleaners were punctual, thorough, and left my place looking pristine. Highly recommend!',
+      rating: 5,
     },
   ];
 
@@ -243,7 +288,8 @@ function ReviewSection() {
   return (
     <div className="our-services  mt-20 pb-10  bg-[#2a2a270d] flex items-center flex-col">
       <h1 className="text-4xl mx-8 mt-16 font-bold text-center">
-        What Our <span className="text-[#E3B04A]">Customers</span> Think
+        What Our
+        <span className="text-[#E3B04A]"> Customers</span> Say About Us
       </h1>
       <div className="service-section mt- flex justify-center flex-col h-[30em] w-full">
         <div className="flex flex-1 justify-center items-center">
