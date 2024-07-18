@@ -53,14 +53,12 @@ export default function Header() {
             >
               <button
                 onClick={() => (location.href = "/")}
-                className={`hover:underline decoration-4 decoration-[#5465ff66]  `}
               >
                 Home
               </button>
               <div className="relative container-dropdown">
                 <button
                   onClick={() => setServiceVisibility(!serviceVisibility)}
-                  className={`hover:underline decoration-4 decoration-[#5465FF66]`}
                 >
                   Services
                 </button>
@@ -71,13 +69,11 @@ export default function Header() {
               </div>
               <button
                 onClick={() => (location.href = "/about-us")}
-                className={`hover:underline decoration-4 decoration-[#5465FF66] `}
               >
                 About Us
               </button>
               <button
                 onClick={() => (location.href = "/contact-us")}
-                className={`hover:underline decoration-4 decoration-[#5465ff66]  `}
               >
                 Contact Us
               </button>
@@ -107,25 +103,25 @@ function ServiceDrop({
     >
       <button
         onClick={() => (location.href = "/cleaning-window")}
-        className="w-full px-5 py-4 ease-in-out duration-500 hover:bg-[#788bff66] overflow-hidden text-start"
+        className="w-full px-5 py-4 ease-in-out duration-500 hover:bg-[#2a2a2750] overflow-hidden text-start"
       >
         Window Cleaning
       </button>
       <button
         onClick={() => (location.href = "/residential-cleaning")}
-        className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#788bff66] text-start`}
+        className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#2a2a2750] text-start`}
       >
         Residential Cleaning
       </button>
       <button
         onClick={() => (location.href = "/commercial-cleaning")}
-        className={`w-full ease-in-out duration-500 px-5 py-4 hover:bg-[#788bff66] text-start`}
+        className={`w-full ease-in-out duration-500 px-5 py-4 hover:bg-[#2a2a2750] text-start`}
       >
         Commercial Cleaning
       </button>
       <button
         onClick={() => (location.href = "/end-of-lease-cleaning")}
-        className={`w-full ease-in-out duration-500 px-5 py-4 rounded-b-md hover:bg-[#788bff66] text-start`}
+        className={`w-full ease-in-out duration-500 px-5 py-4 rounded-b-md hover:bg-[#2a2a2750] text-start`}
       >
         End of Lease Cleaning
       </button>
