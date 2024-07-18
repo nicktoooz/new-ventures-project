@@ -11,10 +11,10 @@ export default function Header() {
         className={`h-16 text-sm relative bg-white z-40 shadow-md flex justify-center items-center `}
       >
         <div className="flex justify-between px-5 items-center flex-1 max-w-[90em] ">
-          <div className="flex items-center gap-4">
+          <a href="/" className="flex items-center gap-4">
             <Image src={logo} alt="" className="w-10 aspect-auto" />
             <h1 className="text-2xl font-bold uppercase">Don Denciong</h1>
-          </div>
+          </a>
           <div className={`header-right z-50`}>
             <div
               className={`md:hidden`}
@@ -51,11 +51,7 @@ export default function Header() {
             <div
               className={` hidden gap-10 md:flex items-center transition-all duration-500`}
             >
-              <button
-                onClick={() => (location.href = "/")}
-              >
-                Home
-              </button>
+              <button onClick={() => (location.href = "/")}>Home</button>
               <div className="relative container-dropdown">
                 <button
                   onClick={() => setServiceVisibility(!serviceVisibility)}
@@ -67,14 +63,10 @@ export default function Header() {
                   className={`absolute transition-all duration-300 shadow-md rounded-b-md mt-5 w-fit flex flex-col items-start bg-white text-nowrap`}
                 />
               </div>
-              <button
-                onClick={() => (location.href = "/about-us")}
-              >
+              <button onClick={() => (location.href = "/about-us")}>
                 About Us
               </button>
-              <button
-                onClick={() => (location.href = "/contact-us")}
-              >
+              <button onClick={() => (location.href = "/contact-us")}>
                 Contact Us
               </button>
             </div>
