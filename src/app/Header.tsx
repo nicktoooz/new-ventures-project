@@ -1,54 +1,84 @@
-'use client';
-import { useState } from 'react';
-import Image from 'next/image';
-import logo from '../../public/logo.svg';
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import logo from "../../public/logo.svg";
 export default function Header() {
   const [menuVisibility, setMenu] = useState(false);
   const [serviceVisibility, setServiceVisibility] = useState(false);
   return (
     <>
-      <header className={`h-16 text-sm relative bg-white z-40 shadow-md flex justify-center items-center `}>
+      <header
+        className={`h-16 text-sm relative bg-white z-40 shadow-md flex justify-center items-center `}
+      >
         <div className="flex justify-between px-5 items-center flex-1 max-w-[90em] ">
           <div className="flex items-center gap-4">
-            <Image src={logo} alt="" className="aspect-auto w-10" />
-            <h1 className="font-bold uppercase text-2xl">Don Denciong</h1>
+            <Image src={logo} alt="" className="w-10 aspect-auto" />
+            <h1 className="text-2xl font-bold uppercase">Don Denciong</h1>
           </div>
           <div className={`header-right z-50`}>
-            <div className={`md:hidden`} onClick={() => setMenu(!menuVisibility)}>
+            <div
+              className={`md:hidden`}
+              onClick={() => setMenu(!menuVisibility)}
+            >
               <span
-                className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500`}
+                className={`bg-[#2A2A27] h-1 w-8 rounded block transition-all duration-500`}
                 style={{
-                  rotate: `${menuVisibility ? '45deg' : '0deg'}`,
-                  transform: `${menuVisibility ? 'translateY(8px) translateX(4px)' : 'translateY(0px)'}`,
+                  rotate: `${menuVisibility ? "45deg" : "0deg"}`,
+                  transform: `${
+                    menuVisibility
+                      ? "translateY(8px) translateX(3.5px)"
+                      : "translateY(0px)"
+                  }`,
                 }}
               ></span>
-              <span className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500 my-1`} style={{ opacity: `${menuVisibility ? 0 : 1}` }}></span>
               <span
-                className={`bg-[#E3B04A] h-1 w-8 rounded block transition-all duration-500`}
+                className={`bg-[#2A2A27] h-1 w-8 rounded block transition-all duration-500 my-1`}
+                style={{ opacity: `${menuVisibility ? 0 : 1}` }}
+              ></span>
+              <span
+                className={`bg-[#2A2A27] h-1 w-8 rounded block transition-all duration-500`}
                 style={{
-                  rotate: `${menuVisibility ? '-45deg' : '0deg'}`,
-                  transform: `${menuVisibility ? 'translateY(-8px) translateX(4px)' : 'translateY(0px)'}`,
+                  rotate: `${menuVisibility ? "-45deg" : "0deg"}`,
+                  transform: `${
+                    menuVisibility
+                      ? "translateY(-8px) translateX(3.5px)"
+                      : "translateY(0px)"
+                  }`,
                 }}
               ></span>
             </div>
 
-            <div className={` hidden gap-10 md:flex items-center transition-all duration-500`}>
-              <button onClick={() => (location.href = '/')} className={`hover:underline decoration-4 decoration-[#5465ff66]  `}>
+            <div
+              className={` hidden gap-10 md:flex items-center transition-all duration-500`}
+            >
+              <button
+                onClick={() => (location.href = "/")}
+                className={`hover:underline decoration-4 decoration-[#5465ff66]  `}
+              >
                 Home
               </button>
-              <div className="container-dropdown relative">
-                <button onClick={() => setServiceVisibility(!serviceVisibility)} className={`hover:underline decoration-4 decoration-[#5465FF66]`}>
+              <div className="relative container-dropdown">
+                <button
+                  onClick={() => setServiceVisibility(!serviceVisibility)}
+                  className={`hover:underline decoration-4 decoration-[#5465FF66]`}
+                >
                   Services
                 </button>
-                <ServiceDrop isVisible={serviceVisibility} className={`absolute transition-all duration-300 shadow-md rounded-b-md mt-5 w-fit flex flex-col items-start bg-white text-nowrap`} />
+                <ServiceDrop
+                  isVisible={serviceVisibility}
+                  className={`absolute transition-all duration-300 shadow-md rounded-b-md mt-5 w-fit flex flex-col items-start bg-white text-nowrap`}
+                />
               </div>
-              <button onClick={() => (location.href = '/gallery')} className={`hover:underline decoration-4 decoration-[#5465FF66] `}>
-                Gallery
-              </button>
-              <button onClick={() => (location.href = '/about-us')} className={`hover:underline decoration-4 decoration-[#5465FF66] `}>
+              <button
+                onClick={() => (location.href = "/about-us")}
+                className={`hover:underline decoration-4 decoration-[#5465FF66] `}
+              >
                 About Us
               </button>
-              <button onClick={() => (location.href = '/contact-us')} className={`hover:underline decoration-4 decoration-[#5465ff66]  `}>
+              <button
+                onClick={() => (location.href = "/contact-us")}
+                className={`hover:underline decoration-4 decoration-[#5465ff66]  `}
+              >
                 Contact Us
               </button>
             </div>
@@ -60,19 +90,43 @@ export default function Header() {
   );
 }
 
-function ServiceDrop({ className, isVisible }: { className: string; isVisible: boolean }) {
+function ServiceDrop({
+  className,
+  isVisible,
+}: {
+  className: string;
+  isVisible: boolean;
+}) {
   return (
-    <div className={`${className} transition-all duration-500 opacity-0`} style={{ visibility: `${isVisible ? 'visible' : 'hidden'}`, opacity: `${isVisible ? 1 : 0}` }}>
-      <button onClick={() => (location.href = '/cleaning-window')} className="w-full px-5 py-4 ease-in-out duration-500 hover:bg-[#788bff66] overflow-hidden text-start">
+    <div
+      className={`${className} transition-all duration-500 opacity-0`}
+      style={{
+        visibility: `${isVisible ? "visible" : "hidden"}`,
+        opacity: `${isVisible ? 1 : 0}`,
+      }}
+    >
+      <button
+        onClick={() => (location.href = "/cleaning-window")}
+        className="w-full px-5 py-4 ease-in-out duration-500 hover:bg-[#788bff66] overflow-hidden text-start"
+      >
         Window Cleaning
       </button>
-      <button onClick={() => (location.href = '/residential-cleaning')} className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#788bff66] text-start`}>
+      <button
+        onClick={() => (location.href = "/residential-cleaning")}
+        className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#788bff66] text-start`}
+      >
         Residential Cleaning
       </button>
-      <button onClick={() => (location.href = '/commercial-cleaning')} className={`w-full ease-in-out duration-500 px-5 py-4 hover:bg-[#788bff66] text-start`}>
+      <button
+        onClick={() => (location.href = "/commercial-cleaning")}
+        className={`w-full ease-in-out duration-500 px-5 py-4 hover:bg-[#788bff66] text-start`}
+      >
         Commercial Cleaning
       </button>
-      <button onClick={() => (location.href = '/end-of-lease-cleaning')} className={`w-full ease-in-out duration-500 px-5 py-4 rounded-b-md hover:bg-[#788bff66] text-start`}>
+      <button
+        onClick={() => (location.href = "/end-of-lease-cleaning")}
+        className={`w-full ease-in-out duration-500 px-5 py-4 rounded-b-md hover:bg-[#788bff66] text-start`}
+      >
         End of Lease Cleaning
       </button>
     </div>
@@ -82,64 +136,76 @@ function ServiceDrop({ className, isVisible }: { className: string; isVisible: b
 function Menu({ visible }: { visible: boolean }) {
   const [serviceState, setServiceState] = useState(false);
   return (
-    <div className={`z-[26] shadow-md flex flex-col w-full mt-16 bg-white absolute text-gray-900 top-0 left-0 transition-all duration-500`} style={{ transform: `translateY(${visible ? '0' : '-100%'})` }}>
-      <button onClick={() => (location.href = '/')} className={`h-14 px-4 text-start font-medium block`}>
+    <div
+      className={`z-[26] shadow-md flex flex-col w-full mt-16 bg-white absolute text-gray-900 top-0 left-0 transition-all duration-500`}
+      style={{ transform: `translateY(${visible ? "0" : "-100%"})` }}
+    >
+      <button
+        onClick={() => (location.href = "/")}
+        className={`h-14 px-4 text-start font-medium block`}
+      >
         Home
       </button>
-      <button className={`h-14 px-4 text-start font-medium block`} onClick={() => setServiceState(!serviceState)}>
+      <button
+        className={`h-14 px-4 text-start font-medium block`}
+        onClick={() => setServiceState(!serviceState)}
+      >
         Services
       </button>
       <button
-        onClick={() => (location.href = '/cleaning-window')}
-        className="px-8 text-start font-medium transition-all delay-0 duration-500"
+        onClick={() => (location.href = "/cleaning-window")}
+        className="px-8 font-medium transition-all duration-500 text-start delay-0"
         style={{
-          visibility: `${serviceState ? 'visible' : 'hidden'}`,
+          visibility: `${serviceState ? "visible" : "hidden"}`,
           opacity: serviceState ? 1 : 0,
-          height: serviceState ? '3.5rem' : '0',
+          height: serviceState ? "3.5rem" : "0",
         }}
       >
         Window Cleaning
       </button>
       <button
-        onClick={() => (location.href = '/residential-cleaning')}
-        className="px-8 text-start font-medium transition-all delay-100 duration-500"
+        onClick={() => (location.href = "/residential-cleaning")}
+        className="px-8 font-medium transition-all duration-500 delay-100 text-start"
         style={{
-          visibility: `${serviceState ? 'visible' : 'hidden'}`,
+          visibility: `${serviceState ? "visible" : "hidden"}`,
           opacity: serviceState ? 1 : 0,
-          height: serviceState ? '3.5rem' : '0',
+          height: serviceState ? "3.5rem" : "0",
         }}
       >
         Residential Cleaning
       </button>
       <button
-        onClick={() => (location.href = '/commercial-cleaning')}
-        className="px-8 text-start font-medium transition-all delay-200 duration-500"
+        onClick={() => (location.href = "/commercial-cleaning")}
+        className="px-8 font-medium transition-all duration-500 delay-200 text-start"
         style={{
-          visibility: `${serviceState ? 'visible' : 'hidden'}`,
+          visibility: `${serviceState ? "visible" : "hidden"}`,
           opacity: serviceState ? 1 : 0,
-          height: serviceState ? '3.5rem' : '0',
+          height: serviceState ? "3.5rem" : "0",
         }}
       >
         Commercial Cleaning
       </button>
       <button
-        onClick={() => (location.href = '/end-of-lease-cleaning')}
-        className="px-8 text-start font-medium transition-all delay-300 duration-500"
+        onClick={() => (location.href = "/end-of-lease-cleaning")}
+        className="px-8 font-medium transition-all duration-500 delay-300 text-start"
         style={{
-          visibility: `${serviceState ? 'visible' : 'hidden'}`,
+          visibility: `${serviceState ? "visible" : "hidden"}`,
           opacity: serviceState ? 1 : 0,
-          height: serviceState ? '3.5rem' : '0',
+          height: serviceState ? "3.5rem" : "0",
         }}
       >
         End-of-Lease Cleaning
       </button>
-      <button onClick={() => (location.href = '/gallery')} className={`h-14 px-4 text-start font-medium block`}>
-        Gallery
-      </button>
-      <button onClick={() => (location.href = '/about-us')} className={`h-14 px-4 text-start font-medium block`}>
+      <button
+        onClick={() => (location.href = "/about-us")}
+        className={`h-14 px-4 text-start font-medium block`}
+      >
         About Us
       </button>
-      <button onClick={() => (location.href = '/contact-us')} className={`h-14 px-4 text-start font-medium block`}>
+      <button
+        onClick={() => (location.href = "/contact-us")}
+        className={`h-14 px-4 text-start font-medium block`}
+      >
         Contact Us
       </button>
     </div>
