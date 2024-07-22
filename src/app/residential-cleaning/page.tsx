@@ -1,7 +1,10 @@
 'use client';
-import ImageGrid from '@/app/(components)/ImageGrid';
 import { useState } from 'react';
 import Quote from '@/app/(components)/QuoteOverlay';
+import ImageGrid from '../(components)/ImageGrid';
+import sample1 from '../../../public/gallery/residential/resi1.jpg';
+import sample2 from '../../../public/gallery/residential/resi2.jpg';
+import { StaticImageData } from 'next/image';
 export default function ResidentialCleaning() {
   const [quoteVisible, setQuoteVisible] = useState(false);
   return (
@@ -45,6 +48,7 @@ function Body() {
     { image: 'image-grid/bathroom-cleaning.jpg', title: 'Bathroom Cleaning' },
     { image: 'image-grid/floor-cleaning.jpg', title: 'Floor Cleaning' },
   ];
+  const images: StaticImageData[] = [sample1, sample2];
 
   return (
     <div className="flex flex-col items-center py-10">
@@ -57,6 +61,10 @@ function Body() {
           <ServiceCard file={e.image} text={e.title} key={i} />
         ))}
       </div>
+      <h1 className="my-10 text-3xl font-bold text-center">
+        Our <span className="text-[#E3B04A]">Gallery</span>
+      </h1>
+      <ImageGrid images={images} />
     </div>
   );
 }

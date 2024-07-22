@@ -14,11 +14,13 @@
     "@types/axios": "^0.14.0",
     "@types/nodemailer": "^6.4.15",
     "axios": "^1.7.2",
+    "embla-carousel-react": "^8.1.7",
     "framer-motion": "^11.2.11",
     "next": "14.2.3",
     "nodemailer": "^6.9.13",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-grid-gallery": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
