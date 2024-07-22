@@ -60,17 +60,16 @@ function Hero({
 
 function Body() {
   const imageData = [
-    { image: "equipment.svg", title: "Mopping" },
-    { image: "equipment.svg", title: "Sweeping" },
-    { image: "equipment.svg", title: "Oven Cleaning" },
-    { image: "equipment.svg", title: "Vacumming" },
-    { image: "equipment.svg", title: "Kitchen Cleaning" },
-    { image: "equipment.svg", title: "Wall Cleaning" },
-    { image: "equipment.svg", title: "Dusting" },
-    { image: "equipment.svg", title: "Bathroom Cleaning" },
-    { image: "equipment.svg", title: "Surface Cleaning" },
+    { image: 'image-grid/mopping.jpg', title: 'Mopping' },
+    { image: 'image-grid/sweeping.jpg', title: 'Sweeping' },
+    { image: 'image-grid/oven-cleaning.jpg', title: 'Oven Cleaning' },
+    { image: 'image-grid/vaccumming.jpg', title: 'Vacumming' },
+    { image: 'image-grid/kitchen-cleaning.jpg', title: 'Kitchen Cleaning' },
+    { image: 'image-grid/wall-cleaning.jpg', title: 'Wall Cleaning' },
+    { image: 'image-grid/dusting.jpg', title: 'Dusting' },
+    { image: 'image-grid/bathroom-cleaning.jpg', title: 'Bathroom Cleaning' },
+    { image: 'image-grid/floor-cleaning.jpg', title: 'Floor Cleaning' },
   ];
-
   return (
     <div className="flex flex-col items-center py-10">
       <p className="text-center max-w-[50em] m-10">
