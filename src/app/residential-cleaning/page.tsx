@@ -64,8 +64,8 @@ function Body() {
 function ServiceCard({ file, text }: { file: string; text: string }) {
   const image = `url(/${file})`;
   return (
-    <div className="max-w-80 h-40 grid w-full rounded-md relative before:absolute before:w-full before:h-full before:inset-0 before:bg-gradient-to-l from-[#ffffff40] from-10% to-[#00000063] bg-cover bg-bottom bg-no-repeat bg-gray-200 overflow-hidden" style={{ backgroundImage: image }}>
-      <h1 className="z-10 self-end p-3 text-xl font-semibold text-white">{text}</h1>
+    <div className="max-w-80 h-40 grid w-full rounded-md relative before:absolute before:w-full before:h-full before:inset-0 before:bg-gradient-to-l from-[#ffffff40] from-10% to-[#00000063] bg-cover bg-no-repeat bg-bottom bg-gray-200 overflow-hidden" style={{ backgroundImage: image }}>
+      <h1 className="z-10 self-end p-5 text-xl text-white">{text}</h1>
     </div>
   );
 }
