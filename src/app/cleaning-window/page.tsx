@@ -51,12 +51,12 @@ function Body() {
   ];
 
   return (
-    <div className="flex flex-col items-center py-10">
+    <div className="flex flex-col items-center px-5 py-10">
       <p className="text-center max-w-[50em] m-10">Having your windows professionally cleaned is an effective way to give your property a fresh, new look. Visitors will immediately notice if your glass doors and windows are free from dust and grime. This is especially important for shopfront windows, as clean windows leave a strong impression that you mean business.</p>
       <h1 className="my-10 text-3xl font-bold text-center">
         What&apos;s <span className="text-[#E3B04A]">Included</span>
       </h1>
-      <div className="flex flex-wrap justify-center gap-5 mx-5 md:max-w-[100em] full mx">
+      <div className="flex flex-wrap justify-center gap-5 md:max-w-[100em] full ">
         {imageData.map((e, i) => (
           <ServiceCard file={e.image} text={e.title} key={i} />
         ))}

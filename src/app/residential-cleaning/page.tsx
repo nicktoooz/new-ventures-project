@@ -72,12 +72,12 @@ function Body() {
   const images = ['https://images.unsplash.com/photo-1518756131217-31eb79b20e8f', 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f', 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25', 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383'];
 
   return (
-    <div className="flex flex-col items-center py-10">
+    <div className="flex px-5 flex-col items-center py-10">
       <p className="text-center max-w-[50em] my-10">Our professional house cleaning services make it easy to enjoy a spotless home and a hassle-free life. To find out more about our extensive services or obtain a free, no-obligation quote, call us now!</p>
       <h1 className="my-10 text-3xl font-bold text-center">
         What&apos;s <span className="text-[#E3B04A]">Included</span>
       </h1>
-      <div className="flex flex-wrap justify-center gap-5 mx-5 md:max-w-[100em]">
+      <div className="flex flex-wrap justify-center gap-5 md:max-w-[100em]">
         {imageData.map((e, i) => (
           <ServiceCard file={e.image} text={e.title} key={i} />
         ))}

@@ -48,12 +48,12 @@ function Body() {
     { image: 'image-grid/floor-cleaning.jpg', title: 'Floor Cleaning' },
   ];
   return (
-    <div className="flex flex-col items-center py-10">
+    <div className="flex flex-col px-5 items-center py-10">
       <p className="text-center max-w-[50em] m-10">Don&apos;t let a dirty office impact your business&apos;s productivity and reputation. Let our professional cleaning experts handle the cleaning for you, so you can focus on what matters most growing your business.</p>
       <h1 className="my-10 text-3xl font-bold text-center">
         What&apos;s <span className="text-[#E3B04A]">Included</span>
       </h1>
-      <div className="flex flex-wrap justify-center gap-5 mx-5 md:max-w-[100em] full mx">
+      <div className="flex flex-wrap justify-center gap-5 md:max-w-[100em] full">
         {imageData.map((e, i) => (
           <ServiceCard file={e.image} text={e.title} key={i} />
         ))}
