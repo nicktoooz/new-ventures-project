@@ -8,7 +8,7 @@ export function SuccessMessage({ visible, onClose }: { visible: boolean; onClose
         <div className={`max-w-96 mx-8 px-8 py-12 flex flex-col items-center bg-white rounded-lg`}>
           <Player src={successAnim} keepLastFrame autoplay style={{ height: '250px', width: '250px' }} />
           <h1 className={`text-center text-2xl font-medium`}>Quote sent!</h1>
-          <p className={`text-center mt-6`}>Vestibulum ac mi lorem. Suspendisse sed viverra lorem. Fusce condimentum facilisis mollis.</p>
+          <p className={`text-center mt-6`}>Your enquiry has been received. We appreciate your interest in our services and will respond to you as soon as possible.</p>
           <button onClick={() => onClose()} className={`bg-[#5465FF] text-[1.2em] text-white rounded px-8 py-2 mt-6`}>
             Done
           </button>
