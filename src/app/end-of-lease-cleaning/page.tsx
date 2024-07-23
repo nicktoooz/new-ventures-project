@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ImageGrid from '@/app/(components)/ImageGrid';
 import Quote from '@/app/(components)/QuoteOverlay';
 import { SuccessMessage } from '@/app/(components)/SuccessMessage';
+import ImageGallery from '@/app/(components)/ImageGrid';
 
 export default function EndOfLease() {
   const [quoteVisible, setQuoteVisible] = useState(false);
@@ -50,6 +51,8 @@ function Body() {
     { image: 'image-grid/floor-cleaning.jpg', title: 'Floor Cleaning' },
   ];
 
+  const images = ['https://images.unsplash.com/photo-1518756131217-31eb79b20e8f', 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f', 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25', 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383'];
+
   return (
     <div className="flex flex-col px-5 items-center py-10">
       <p className="text-center max-w-[50em] m-10">Our professional house cleaning services make it easy to enjoy a spotless home and a hassle-free life. To find out more about our extensive services or obtain a free, no-obligation quote, call us now!</p>
@@ -61,6 +64,10 @@ function Body() {
           <ServiceCard file={e.image} text={e.title} key={i} />
         ))}
       </div>
+      <h1 className="my-10 text-3xl font-bold text-center">
+        Our <span className="text-[#E3B04A]">Gallery</span>
+      </h1>
+      <ImageGallery imageData={images} />
     </div>
   );
 }

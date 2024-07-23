@@ -5,7 +5,21 @@ import { Box, Paper } from '@mui/material';
 import Masonry from '@mui/lab/Masonry';
 import { styled } from '@mui/material/styles';
 
-export default function ImageGallery({ imageData, columns }: { imageData: string[]; columns: number }) {
+export default function ImageGallery({ imageData }: { imageData: string[] }) {
+  const [columns, setColumns] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const minColumnWidth = 300; // Minimum width for each column in pixels
+      const calculatedColumns = Math.max(1, Math.floor(window.innerWidth / minColumnWidth));
+      setColumns(calculatedColumns);
+    };
+
+    handleResize(); // Set initial columns
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <Box sx={{ maxWidth: '100em', width: '100%', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
       <Masonry columns={columns} spacing={2} sx={{ alignContent: 'center' }}>

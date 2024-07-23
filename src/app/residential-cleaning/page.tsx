@@ -42,21 +42,6 @@ function Hero({ setQuoteVisible }: { setQuoteVisible: React.Dispatch<React.SetSt
 }
 
 function Body() {
-  const [columns, setColumns] = useState(3);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const minColumnWidth = 300; // Minimum width for each column in pixels
-      const calculatedColumns = Math.max(1, Math.floor(window.innerWidth / minColumnWidth));
-      setColumns(calculatedColumns);
-    };
-
-    handleResize(); // Set initial columns
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const imageData = [
     { image: 'image-grid/mopping.jpg', title: 'Mopping' },
     { image: 'image-grid/sweeping.jpg', title: 'Sweeping' },
@@ -85,7 +70,7 @@ function Body() {
       <h1 className="my-10 text-3xl font-bold text-center">
         Our <span className="text-[#E3B04A]">Gallery</span>
       </h1>
-      <ImageGallery imageData={images} columns={columns} />
+      <ImageGallery imageData={images} />
     </div>
   );
 }

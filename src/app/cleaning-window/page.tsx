@@ -3,6 +3,7 @@ import ImageGrid from '@/app/(components)/ImageGrid';
 import Quote from '@/app/(components)/QuoteOverlay';
 import { useState } from 'react';
 import { SuccessMessage } from '@/app/(components)/SuccessMessage';
+import ImageGallery from '@/app/(components)/ImageGrid';
 
 export default function WindowCleaning() {
   const [quoteVisible, setQuoteVisible] = useState(false);
@@ -38,29 +39,16 @@ function Hero({ setQuoteVisible }: { setQuoteVisible: React.Dispatch<React.SetSt
 }
 
 function Body() {
-  const imageData = [
-    { image: 'image-grid/mopping.jpg', title: 'Mopping' },
-    { image: 'image-grid/sweeping.jpg', title: 'Sweeping' },
-    { image: 'image-grid/oven-cleaning.jpg', title: 'Oven Cleaning' },
-    { image: 'image-grid/vaccumming.jpg', title: 'Vacumming' },
-    { image: 'image-grid/kitchen-cleaning.jpg', title: 'Kitchen Cleaning' },
-    { image: 'image-grid/wall-cleaning.jpg', title: 'Wall Cleaning' },
-    { image: 'image-grid/dusting.jpg', title: 'Dusting' },
-    { image: 'image-grid/bathroom-cleaning.jpg', title: 'Bathroom Cleaning' },
-    { image: 'image-grid/floor-cleaning.jpg', title: 'Floor Cleaning' },
-  ];
+
+  const images = ['https://images.unsplash.com/photo-1518756131217-31eb79b20e8f', 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f', 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25', 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383'];
 
   return (
     <div className="flex flex-col items-center px-5 py-10">
       <p className="text-center max-w-[50em] m-10">Having your windows professionally cleaned is an effective way to give your property a fresh, new look. Visitors will immediately notice if your glass doors and windows are free from dust and grime. This is especially important for shopfront windows, as clean windows leave a strong impression that you mean business.</p>
       <h1 className="my-10 text-3xl font-bold text-center">
-        What&apos;s <span className="text-[#E3B04A]">Included</span>
+        Our <span className="text-[#E3B04A]">Gallery</span>
       </h1>
-      <div className="flex flex-wrap justify-center gap-5 md:max-w-[100em] full ">
-        {imageData.map((e, i) => (
-          <ServiceCard file={e.image} text={e.title} key={i} />
-        ))}
-      </div>
+      <ImageGallery imageData={images} />
     </div>
   );
 }
