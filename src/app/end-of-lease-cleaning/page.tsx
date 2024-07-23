@@ -65,7 +65,6 @@ function Body() {
   );
 }
 
-
 function ServiceCard({ file, text }: { file: string; text: string }) {
   const image = `url(/${file})`;
   return (

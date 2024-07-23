@@ -2,14 +2,12 @@
 import Image from 'next/image';
 import image1 from '../../public/hero.svg';
 import house from '../../public/houseicon.png';
-import shake from '../../public/shake.png';
 import phone from '../../public/phone.svg';
 import email from '../../public/mail.svg';
 import trash_bin from '../../public/trash_bin.svg';
 import promo1 from '../../public/promo1.svg';
 import promo2 from '../../public/promo2.svg';
 import house2 from '../../public/haus.svg';
-import mopping from '../../public/mopping.png';
 import desktop from '../../public/desktop.png';
 import key from '../../public/key.png';
 import window from '../../public/window.png';
@@ -25,6 +23,10 @@ import notravelfee from '../../public/notravelfee.svg';
 import { SuccessMessage } from './(components)/SuccessMessage';
 import stars from '../../public/StarRating.svg';
 import Footer from './Footer';
+import home from '../../public/home.svg';
+import office from '../../public/office.svg';
+import lease from '../../public/lease.svg';
+import windowIcon from '../../public/window.svg';
 export default function Home() {
   return (
     <div className="">
@@ -108,25 +110,25 @@ function ServiceSection() {
   const services = [
     {
       url: 'residential-cleaning',
-      image: house,
+      image: home,
       title: 'Residential Cleaning',
       desc: 'Our professional cleaning team is dedicated to providing top-notch cleaning services tailored to your specific need.',
     },
     {
       url: 'commercial-cleaning',
-      image: desktop,
+      image: office,
       title: 'Commercial/Office Cleaning',
       desc: 'Our team of expert cleaners is dedicated to delivering top-notch cleaning services to businesses in the area.',
     },
     {
       url: 'end-of-lease-cleaning',
-      image: key,
+      image: lease,
       title: 'End-of-Lease Cleaning',
       desc: 'Our end of lease cleaning service is designed to meet the stringent requirements of property managers and landlords.',
     },
     {
       url: 'cleaning-window',
-      image: window,
+      image: windowIcon,
       title: 'Window Cleaning',
       desc: 'Window cleaning services for a wide range of clients, including houses, shops, bars, car dealerships, showrooms, and strata buildings.',
     },

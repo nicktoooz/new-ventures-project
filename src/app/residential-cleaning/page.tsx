@@ -1,10 +1,15 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Quote from '@/app/(components)/QuoteOverlay';
 import ImageGrid from '../(components)/ImageGrid';
 import sample1 from '../../../public/gallery/residential/resi1.jpg';
 import sample2 from '../../../public/gallery/residential/resi2.jpg';
 import { StaticImageData } from 'next/image';
+import { Box, Paper } from '@mui/material';
+import Masonry from '@mui/lab/Masonry';
+import { styled } from '@mui/material/styles';
+import ImageGallery from '../(components)/ImageGrid';
+
 export default function ResidentialCleaning() {
   const [quoteVisible, setQuoteVisible] = useState(false);
   return (
@@ -37,6 +42,21 @@ function Hero({ setQuoteVisible }: { setQuoteVisible: React.Dispatch<React.SetSt
 }
 
 function Body() {
+  const [columns, setColumns] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const minColumnWidth = 300; // Minimum width for each column in pixels
+      const calculatedColumns = Math.max(1, Math.floor(window.innerWidth / minColumnWidth));
+      setColumns(calculatedColumns);
+    };
+
+    handleResize(); // Set initial columns
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const imageData = [
     { image: 'image-grid/mopping.jpg', title: 'Mopping' },
     { image: 'image-grid/sweeping.jpg', title: 'Sweeping' },
@@ -48,7 +68,8 @@ function Body() {
     { image: 'image-grid/bathroom-cleaning.jpg', title: 'Bathroom Cleaning' },
     { image: 'image-grid/floor-cleaning.jpg', title: 'Floor Cleaning' },
   ];
-  const images: StaticImageData[] = [sample1, sample2];
+
+  const images = ['https://images.unsplash.com/photo-1518756131217-31eb79b20e8f', 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f', 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25', 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383'];
 
   return (
     <div className="flex flex-col items-center py-10">
@@ -64,7 +85,7 @@ function Body() {
       <h1 className="my-10 text-3xl font-bold text-center">
         Our <span className="text-[#E3B04A]">Gallery</span>
       </h1>
-      <ImageGrid images={images} />
+      <ImageGallery imageData={images} columns={columns} />
     </div>
   );
 }

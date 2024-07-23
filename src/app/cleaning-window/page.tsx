@@ -52,7 +52,7 @@ function Body() {
 
   return (
     <div className="flex flex-col items-center py-10">
-      <p className="text-center max-w-[50em] m-10">Our professional house cleaning services make it easy to enjoy a spotless home and a hassle-free life. To find out more about our extensive services or obtain a free, no-obligation quote, call us now!</p>
+      <p className="text-center max-w-[50em] m-10">Having your windows professionally cleaned is an effective way to give your property a fresh, new look. Visitors will immediately notice if your glass doors and windows are free from dust and grime. This is especially important for shopfront windows, as clean windows leave a strong impression that you mean business.</p>
       <h1 className="my-10 text-3xl font-bold text-center">
         What&apos;s <span className="text-[#E3B04A]">Included</span>
       </h1>
@@ -64,7 +64,6 @@ function Body() {
     </div>
   );
 }
-
 
 function ServiceCard({ file, text }: { file: string; text: string }) {
   const image = `url(/${file})`;
