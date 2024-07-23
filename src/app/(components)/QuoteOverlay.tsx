@@ -90,7 +90,7 @@ export default function Quote({ visible, onClose }: { visible: boolean; onClose:
             resetForm();
           }
         }}
-        className={`fixed top-0 left-0 w-full h-screen pt-[5em]  bg-[#00000080] p-5 z-[25] flex justify-center md:items-center `}
+        className={`fixed top-0 left-0 w-full h-screen pt-[5em] bg-[#00000080] p-5 z-[25] flex justify-center md:items-center `}
       >
         <SuccessMessage
           visible={success}

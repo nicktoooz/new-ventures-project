@@ -10,7 +10,7 @@ export function SuccessMessage({ visible, onClose }: { visible: boolean; onClose
           <h1 className={`text-center text-2xl font-medium`}>Quote sent!</h1>
           <p className={`text-center mt-6`}>Vestibulum ac mi lorem. Suspendisse sed viverra lorem. Fusce condimentum facilisis mollis.</p>
           <button onClick={() => onClose()} className={`bg-[#5465FF] text-[1.2em] text-white rounded px-8 py-2 mt-6`}>
-            Dones
+            Done
           </button>
         </div>
       </div>
