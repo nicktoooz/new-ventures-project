@@ -8,7 +8,7 @@ export default function Footer() {
       className={`h-fit text-white bg-[#2A2A27] gap-10 flex-col md:flex-row flex md:items-center justify-between p-10 md:p-16`}
     >
       <div className={`flex flex-col justify-center `}>
-        <h1 className={`text-xl font-semibold`}>Don Denciong</h1>
+        <h1 className={`text-xl font-semibold`}>CleenrSpot</h1>
         <p className={`mt-5 text-xs`}>Your New Cleaning Partner!</p>
         <p className={`text-xs`}>Expert Cleaning for Your Home and Office!</p>
         <p className={`text-xs`}> We Make Clean Look Easy!</p>
@@ -64,7 +64,7 @@ export default function Footer() {
                 alt={``}
               />
               <a href="mailto:info@dondenciong.com.au" className={`text-xs`}>
-                info@dondenciong.com.au
+                info@cleenrspot.com
               </a>
             </section>
             <a

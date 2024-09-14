@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import logo from "../../public/logo.svg";
+import logo from "../../public/ventures.png";
 export default function Header() {
   const [menuVisibility, setMenu] = useState(false);
   const [serviceVisibility, setServiceVisibility] = useState(false);
@@ -13,7 +13,7 @@ export default function Header() {
         <div className="flex justify-between px-5 items-center flex-1 max-w-[90em] ">
           <a href="/" className="flex items-center gap-4">
             <Image src={logo} alt="" className="w-10 aspect-auto" />
-            <h1 className="text-2xl font-bold uppercase">Don Denciong</h1>
+            <h1 className="text-2xl font-bold uppercase">CleenrSpot</h1>
           </a>
           <div className={`header-right z-50`}>
             <div
