@@ -1,11 +1,14 @@
 
 import React from 'react';
 import Image from 'next/image';
+import image_sample from '../../../public/Frame 1.svg'
+import product1 from '../../../public/product1.png'
+import product2 from '../../../public/product2.png'
 
 export default function Market() {
     const imageData = [
-        { image: '', title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
-        { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
+        { image: product1, title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
+        { image: product2, title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
         { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
         { image: '', title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
         { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
@@ -33,14 +36,13 @@ export default function Market() {
 }
 
 function ProductCard({file, text, name, price, quantity}: {
-    file: string;
+    file: any;
     text: string;
     name: string;
     price:string; quantity:string }) {
-    const image = `url(/${file})`; // Ensure the image path is correct for Next.js public folder
     return (
         <div className="flex flex-col w-72 items-center p-5 bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src={image} alt={text} className="w-full h-[18em] object-cover"/>
+            <Image className='w-full h-[18em] object-cover' src={file} alt=''/>
             <div className="flex flex-col items-center gap-2">
                 <h2 className="text-xl font-semibold">{name}</h2>
                 <h2 className="text-xl font-semibold">{price}</h2>
