@@ -5,6 +5,7 @@ import logo from "../../public/ventures.png";
 export default function Header() {
   const [menuVisibility, setMenu] = useState(false);
   const [serviceVisibility, setServiceVisibility] = useState(false);
+  const [productsVisibility, setProductVisibility] = useState(false);
   return (
     <>
       <header
@@ -53,16 +54,27 @@ export default function Header() {
             >
               <button onClick={() => (location.href = "/")}>Home</button>
               <div className="relative container-dropdown">
-                <button
+                <a
                   onClick={() => setServiceVisibility(!serviceVisibility)}
                 >
                   Services
-                </button>
+                </a>
                 <ServiceDrop
                   isVisible={serviceVisibility}
                   className={`absolute transition-all duration-300 shadow-md rounded-b-md mt-5 w-fit flex flex-col items-start bg-white text-nowrap`}
                 />
               </div>
+
+              <div className="relative container-dropdown">
+                <a href="/market">
+                  Products
+                </a>
+                {/*<ProductsDrop*/}
+                {/*  isVisible={productsVisibility}*/}
+                {/*  className={`absolute transition-all duration-300 shadow-md rounded-b-md mt-5 w-fit flex flex-col items-start bg-white text-nowrap`}*/}
+                {/*/>*/}
+              </div>
+              
               <button onClick={() => (location.href = "/about-us")}>
                 About Us
               </button>
@@ -77,6 +89,54 @@ export default function Header() {
     </>
   );
 }
+
+// function ProductsDrop({isVisible, className} :{
+//   className: string;
+//   isVisible: boolean;
+// }){
+//   return (
+//     <div
+//       className={`${className} transition-all duration-500 opacity-0`}
+//       style={{
+//         visibility: `${isVisible ? "visible" : "hidden"}`,
+//         opacity: `${isVisible ? 1 : 0}`,
+//       }}
+//     >
+//       {/* <button
+//         onClick={() => (location.href = "/cleaning-window")}
+//         className="w-full px-5 py-4 ease-in-out duration-500 hover:bg-[#2a2a2750] overflow-hidden text-start"
+//       >
+//         Window Cleaning
+//       </button> */}
+//
+//     {/* TODO : Pages */}
+//       <button
+//         onClick={() => (location.href = " ")}
+//         className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#2a2a2750] text-start`}>
+//         View All
+//       </button>
+//
+//       <button
+//         onClick={() => (location.href = " ")}
+//         className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#2a2a2750] text-start`}>
+//         All Purpose Cleaner
+//       </button>
+//
+//       <button
+//         onClick={() => (location.href = " ")}
+//         className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#2a2a2750] text-start`}>
+//        Bathroom Cleaner
+//       </button>
+//
+//       <button
+//         onClick={() => (location.href = " ")}
+//         className={`w-full ease-in-out duration-500 px-5 py-4  hover:bg-[#2a2a2750] text-start`}>
+//        Liquid handsoap
+//       </button>
+//     </div>
+//   );
+// }
+
 
 function ServiceDrop({
   className,
