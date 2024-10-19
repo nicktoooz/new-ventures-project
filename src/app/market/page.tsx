@@ -4,17 +4,23 @@ import Image from 'next/image';
 import image_sample from '../../../public/Frame 1.svg'
 import product1 from '../../../public/product1.png'
 import product2 from '../../../public/product2.png'
+import product3 from '../../../public/product3.png'
+import product4 from '../../../public/product4.png'
+import product5 from '../../../public/product5.png'
+import product6 from '../../../public/product6.png'
+import product7 from '../../../public/product7.png'
+import product8 from '../../../public/product8.jpg'
 
 export default function Market() {
     const imageData = [
         { image: product1, title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
         { image: product2, title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
-        { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
-        { image: '', title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
-        { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
-        { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
-        { image: '', title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
-        { image: '', title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
+        { image: product3, title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
+        { image: product4, title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
+        { image: product5, title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
+        { image: product6, title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
+        { image: product7, title: '', name: 'All Purpose Cleaner' ,price:'Php 180', quantity:'100ml'},
+        { image: product8, title: '' , name: 'All Purpose Cleaner',price:'Php 180', quantity:'100ml'},
     ];
 
     return (
